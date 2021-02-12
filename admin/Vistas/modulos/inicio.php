@@ -8,7 +8,7 @@
 
         <div class="col-md-5 text-center">
 
-        <h1>BIENVEIDOS</h1>
+        <h1>BIENVENIDOS</h1>
 
         </div>
 
@@ -33,6 +33,11 @@
       <div class="box-body">
 
         <!--EL CUERPO DEL PROYECTO TABLAS Y COSAS RARAS--->
+
+              
+
+
+
 
 
       </div>

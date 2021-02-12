@@ -46,29 +46,18 @@
 
 
           <li class="nav-item">
-            <a href="entrevistas" class="nav-link">
-              <i class="nav-icon fas fa-book-reader"></i>
+            <a href="productos" class="nav-link">
+              <i class="nav-icon fas fa-shopping-bag"></i>
               <p>Productos</p>
             </a>
           </li>
 
-
           <li class="nav-item">
-            <a href="reemplazos" class="nav-link">
-              <i class="nav-icon fas fa-walking"></i>
-              <p>Reemplazos</p>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Nosotros</p>
             </a>
           </li>
-
-
-          <li class="nav-item">
-            <a href="seguimiento" class="nav-link">
-              <i class="nav-icon fas fa-street-view"></i>
-              <p>Seguimiento</p>
-            </a>
-          </li>
-
-
 
           <li class="nav-item">
             <a href="#" class="nav-link">

@@ -1,0 +1,75 @@
+:root {}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3 {
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 3.4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+.bg-light {
+    background-color: white!important;
+}
+
+.nombre-sitio {
+    font-weight: 300;
+    font-size: 2.4rem;
+}
+
+.nombre-sitio span {
+    font-weight: 900;
+}
+
+.navbar-toggler {
+    background-color: white!important;
+    margin: 0 auto;
+}
+
+.header {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../mg/fondo.jpg);
+    background-size: cover;
+    background-position: bottom center;
+}
+
+.nav-link {
+    color: white!important;
+    background-color: #111;
+}
+
+.nav-link:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+/*@media (min-width:992px) {
+    .header .nav-link:first-child::before {
+        display: none;
+    }
+    .header .nav-link::before {
+        content: '|';
+        margin-right: 1rem;
+    }
+}*/
+
+.telefono::before {
+    content: '';
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    background-image: url(../mg/icono_telefono.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: 1rem;
+}
+
+

@@ -11,7 +11,7 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SISTEMA HC</title>
+  <title>JOMTER</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -68,14 +68,7 @@ session_start();
     if (isset($_GET["url"])) {
 
       if (
-        $_GET["url"] == "inicio" || $_GET["url"] == "salir" || $_GET["url"] == "asistencia"
-        || $_GET["url"] == "beneficios"  || $_GET["url"] == "profesoresAsignaturas"   || $_GET["url"] == "profesoresJefes"
-        || $_GET["url"] == "verAsistencia" || $_GET["url"] == "RegistroProfesorJefe" || $_GET["url"] == "recursos"
-        || $_GET["url"] == "seguimiento" || $_GET["url"] == "mantenedorAlumnos"  || $_GET["url"] == "mantenedorAsignaturas"
-        || $_GET["url"] == "mantenedorCursos" || $_GET["url"] == "mantenedorProfesores"
-        || $_GET["url"] == "seguimiento" ||  $_GET["url"] == "yoPuedo" ||  $_GET["url"] == "reunionApoderados" ||  $_GET["url"] == "familiaEscuela" 
-        ||  $_GET["url"] == "recursosPedagogicos"  ||  $_GET["url"] == "webclass" ||  $_GET["url"] == "clase" || $_GET["url"] == "reemplazos" 
-        || $_GET["url"] == "observaciones"  || $_GET["url"] == "entrevistas" ) {
+        $_GET["url"] == "inicio" || $_GET["url"] == "salir" || $_GET["url"] == "productos" ) {
 
         
 
@@ -134,76 +127,8 @@ session_start();
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-  <?php
-
-  if ($_GET["url"] == "asistencia") {
-
-    echo '<script src="Vistas/js/asistencia.js"></script>';
-  } else if ($_GET["url"] == "verAsistencia") {
-
-    echo '<script src="Vistas/js/verAsistencia.js"></script>';
-  } else if ($_GET["url"] == "beneficios") {
-
-    echo '<script src="Vistas/js/beneficios.js"></script> ';
-  } else if ($_GET["url"] == "profesoresJefes") {
-
-    echo '<script src= "Vistas/js/profesores.js"></script>';
-  } else if ($_GET["url"] == "RegistroProfesorJefe") {
-
-    echo '<script src="Vistas/js/verRegistroProfesor.js"></script>';
-  } else if ($_GET["url"] == "recursos") {
-
-    echo '<script src="Vistas/js/recursos.js"></script>';
-  } else if ($_GET["url"] == "seguimiento") {
-
-    echo '<script src="Vistas/js/seguimiento.js"></script>';
-  } else if ($_GET["url"] == "mantenedorAlumnos") {
-
-    echo '<script src="Vistas/js/mantenedorAlumnos.js"></script>';
-  } else if ($_GET["url"] == "mantenedorAsignaturas") {
-
-    echo '<script src="Vistas/js/mantenedorAsignaturas.js"></script>';
-  } else if ($_GET["url"] == "mantenedorCursos") {
-
-    echo '<script src="Vistas/js/mantenedorCursos.js"></script>';
-  } else if ($_GET["url"] == "mantenedorProfesores") {
-
-    echo '<script src="Vistas/js/mantenedorProfesores.js"></script>';
-  }else if ($_GET["url"]== "yoPuedo"){
-
-    echo '<script src="Vistas/js/yoPuedo.js"></script>';
-  }else if ($_GET["url"]== "reunionApoderados"){
-
-    echo '<script src="Vistas/js/reunionApoderados.js"></script>';
-  }else if ($_GET["url"]== "familiaEscuela"){
-
-    echo '<script src="Vistas/js/familiaEscuela.js"></script>';
-  }else if ($_GET["url"]== "recursosPedagogicos"){
-
-    echo '<script src="Vistas/js/recursosPedagogicos.js"></script>';
-  }else if ($_GET["url"]== "webclass"){
-
-    echo '<script src="Vistas/js/webclass.js"></script>';
-  }else if ($_GET["url"]== "clase"){
-
-    echo '<script src="Vistas/js/clase.js"></script>';
-  }else if ($_GET["url"]== "reemplazos"){
-
-    echo '<script src="Vistas/js/reemplazos.js"></script>';
-  }else if ($_GET["url"]== "observaciones"){
-
-    echo '<script src="Vistas/js/observaciones.js"></script>';
-  }else if ($_GET["url"]== "entrevistas"){
-
-    echo '<script src="Vistas/js/entrevistas.js"></script>';
-  }
-
-
-
-
-  ?>
-
+  
+  <script src="Vistas/js/cargarImagens.js"></script>
 
 
 </body>
