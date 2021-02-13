@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/productos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container-fluid" style="background-color: black;">
+          
+            <div class="row">
+               <div class="col-md-5"></div>
+               <div class="col-md-5">redes</div>
+            </div>
+           
+
+        </div>
+     
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                   
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contácto</a>
+                          </li>
+                       
+                      </ul>
+                      <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                      </form>
+                    </div>
+                  </nav>
+
+
+
+    </header>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4 mt-5">
+                <div class="card card-blog">
+                    <div class="card-image">
+                        <a href="#"> <img class="img" style="height: 15rem;" src="../../admin/Vistas/img/llave.jpg">
+                            <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                        </a>
+                        <div class="ripple-cont"></div>
+                    </div>
+                    <div class="table">
+                        <h5 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h5>
+                        <p><strong>Stock</strong> 10</p>
+
+                        <h4>$ 10.990</h4>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Agregar</button>
+                            <button class="btn btn-primary" data-toggle="modal"
+                                data-target="#descripcionProducto">Descripción</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+
+
+        </div>
+
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/f6488b3598.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+<!--MODAL DESCRIPCION-->
+
+<div class="modal fade" id="descripcionProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4><strong>Descripción</strong></h4>
+            </div>
+
+            <div class="modal-body">
+
+                <p>Con el foco solar de 20 Led con sensor de movimiento puede añadir un toque de seguridad a su hogar.
+                    Es perfecto para puertas de garaje escaleras patios y caminos. Características: Carga: luz solar.
+                    Resistente al agua: IP65. Tamaño: 9.5 x 12.4 cm. Peso: 147g por unidad. Led: 20. Vatios: 65W.
+                    Distancia de sensor: 3 metros. Ángulo de sensor: sector 120 . Material: plástico ABS +
+                    policarbonato. Tiempo de carga: aproximadamente 8 horas.</p>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+
+
+            </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--MODAL AGREGAR-->
+
+<div class="modal fade" id="agregarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4><strong>Confirme cantidad</strong></h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="container">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-md-6">
+                            <img class="img" style="height: 18rem;" src="../../admin/Vistas/img/llave.jpg">
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <h5 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h5>
+                            <p><strong>Stock</strong> 10</p>
+
+                            <h4>$ 10.990 c/u</h4>
+
+                            <div class="form-group">
+                                <label for="precioProductoN"><strong>Cantidad</strong> </label>
+                                <input type="number" class="form-control input-lg" id="precioProductoN">
+                            </div>
+
+                        </div>
+
+                        <h3 class="ml-5">Total $ 10900</h3>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-success" data-dismiss="modal">Agregar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+
+
+            </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
