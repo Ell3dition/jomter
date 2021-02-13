@@ -16,41 +16,94 @@
     <header>
 
         <div class="container-fluid" style="background-color: black;">
-          
+
             <div class="row">
-               <div class="col-md-5"></div>
-               <div class="col-md-5">redes</div>
+                <div class="col-md-2 my-3" >
+                    
+                    <img src="../mg/logo.png" class="img-fluid" alt="">
+                
+                </div>
+
+                <div class="col-md-7 my-3 justify-content-center" >
+                    <form class="form-inline my-2 my-lg-0 p-2">
+                        <input class="form-control" style="width: 85%;" type="search" placeholder="Buscar"
+                            aria-label="Search">
+                        <button class="btn btn-outline-secundary my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+
+                <div class="col-md-1 text-center">
+
+                    <img src="../mg/carrito.png" data-toggle="modal" data-target="#carritoCompras" class="img-fluid" alt="">
+                  
+
+                </div>
+
+
+
+                <div class="col-md-2 justify-content-center my-3">
+                    <nav class="sociales text-center">
+                        <ul>
+                            <li><a href="http://www.facebook.com" target="_blank"> <span class="sr-only"> </span></a></li>
+                            <li><a href="http://www.instagram.com" target="_blank"> <span class="sr-only"> </span></a></li>
+                            <li><a href="http://www.whatsapp.com" target="_blank"> <span class="sr-only"> </span></a></li>
+                        </ul>
+                    </nav>
+
+
+
+
+                </div>
             </div>
-           
+
 
         </div>
-     
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                   
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contácto</a>
-                          </li>
-                       
-                      </ul>
-                      <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                      </form>
-                    </div>
-                  </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(0, 0, 0, 0.575); " >
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" style="background-color: rgba(39, 111, 124, 0.575); ">
+                     <li class="nav-item">
+                        <a class="nav-link" href="../../index.html"> <strong class="color">Inicio</strong> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong class="color">Nosotros</strong> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong class="color">Contácto</strong></a>
+                    </li>
+
+                </ul>
+
+                <ul class="navbar-nav mr-auto" style="background-color: rgb(65, 42, 165);">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong class="color">Belleza</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong class="color">Vesturio y Hogar</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong class="color">Tecnología</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong class="color">Juguetes</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong class="color">Iluminación</strong></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+
 
 
 
@@ -58,37 +111,181 @@
 
     <div class="container">
 
-        <div class="row">
+        <div class="row justify-content-center">
 
-            <div class="col-md-4 mt-5">
+            <div class="col-md-3 col-9 mt-5">
                 <div class="card card-blog">
-                    <div class="card-image">
-                        <a href="#"> <img class="img" style="height: 15rem;" src="../../admin/Vistas/img/llave.jpg">
+                    <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
+                      <img  src="../../admin/Vistas/img/llave.jpg" class="img imagen-tarjeta" >
                             <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
-                        </a>
-                        <div class="ripple-cont"></div>
+                        
                     </div>
                     <div class="table">
-                        <h5 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h5>
+                        <h6 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h6>
                         <p><strong>Stock</strong> 10</p>
-
                         <h4>$ 10.990</h4>
                         <div class="d-grid gap-2 d-md-block">
                             <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
                                     class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 Agregar</button>
-                            <button class="btn btn-primary" data-toggle="modal"
-                                data-target="#descripcionProducto">Descripción</button>
+                          
                         </div>
-
                     </div>
                 </div>
-
             </div>
-            
 
+
+            <div class="col-md-3 col-9 mt-5">
+                <div class="card card-blog">
+                    <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
+                      <img  src="../../admin/Vistas/img/llave.jpg" class="img imagen-tarjeta" >
+                            <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                        
+                    </div>
+                    <div class="table">
+                        <h6 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h6>
+                        <p><strong>Stock</strong> 10</p>
+                        <h4>$ 10.990</h4>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Agregar</button>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-9 mt-5">
+                <div class="card card-blog">
+                    <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
+                      <img  src="../../admin/Vistas/img/llave.jpg" class="img imagen-tarjeta" >
+                            <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                        
+                    </div>
+                    <div class="table">
+                        <h6 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h6>
+                        <p><strong>Stock</strong> 10</p>
+                        <h4>$ 10.990</h4>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Agregar</button>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-9 mt-5">
+                <div class="card card-blog">
+                    <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
+                      <img  src="../../admin/Vistas/img/llave.jpg" class="img imagen-tarjeta" >
+                            <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                        
+                    </div>
+                    <div class="table">
+                        <h6 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h6>
+                        <p><strong>Stock</strong> 10</p>
+                        <h4>$ 10.990</h4>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Agregar</button>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-9 mt-5">
+                <div class="card card-blog">
+                    <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
+                      <img  src="../../admin/Vistas/img/llave.jpg" class="img imagen-tarjeta" >
+                            <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                        
+                    </div>
+                    <div class="table">
+                        <h6 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h6>
+                        <p><strong>Stock</strong> 10</p>
+                        <h4>$ 10.990</h4>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Agregar</button>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-9 mt-5">
+                <div class="card card-blog">
+                    <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
+                      <img  src="../../admin/Vistas/img/llave.jpg" class="img imagen-tarjeta" >
+                            <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                        
+                    </div>
+                    <div class="table">
+                        <h6 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h6>
+                        <p><strong>Stock</strong> 10</p>
+                        <h4>$ 10.990</h4>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Agregar</button>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-9 mt-5">
+                <div class="card card-blog">
+                    <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
+                      <img  src="../../admin/Vistas/img/llave.jpg" class="img imagen-tarjeta" >
+                            <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                        
+                    </div>
+                    <div class="table">
+                        <h6 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h6>
+                        <p><strong>Stock</strong> 10</p>
+                        <h4>$ 10.990</h4>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Agregar</button>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-9 mt-5">
+                <div class="card card-blog">
+                    <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
+                      <img  src="../../admin/Vistas/img/llave.jpg" class="img imagen-tarjeta" >
+                            <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                        
+                    </div>
+                    <div class="table">
+                        <h6 class="text-info">FOCO SOLAR CON CONTROL REMOTO 30 WATT</h6>
+                        <p><strong>Stock</strong> 10</p>
+                        <h4>$ 10.990</h4>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#agregarProducto"> <i
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Agregar</button>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
+        <!--ROW-->
+
+
 
 
     </div>
@@ -160,8 +357,8 @@
 
                     <div class="row justify-content-center">
 
-                        <div class="col-md-6">
-                            <img class="img" style="height: 18rem;" src="../../admin/Vistas/img/llave.jpg">
+                        <div class="col-md-5">
+                            <img class="img img-fluid" style="height: 18rem;" src="../../admin/Vistas/img/llave.jpg">
 
                         </div>
 
@@ -170,20 +367,21 @@
                             <p><strong>Stock</strong> 10</p>
 
                             <h4>$ 10.990 c/u</h4>
-
                             <div class="form-group">
                                 <label for="precioProductoN"><strong>Cantidad</strong> </label>
-                                <input type="number" class="form-control input-lg" id="precioProductoN">
+                                <input type="number" class="form-control input-lg" id="precioProductoN" placeholder="1"
+                                    style="width: 90px;">
                             </div>
-
+                            <h3 class="ml-5">Total $ 10900</h3>
                         </div>
 
-                        <h3 class="ml-5">Total $ 10900</h3>
+
 
                     </div>
 
 
                 </div>
+                <!--Container-->
 
 
             </div>
@@ -191,6 +389,110 @@
 
                 <button type="button" class="btn btn-success" data-dismiss="modal">Agregar</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+
+
+            </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!--MODAL CARRITO-->
+
+<div class="modal fade" id="carritoCompras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4><strong>Carrito</strong></h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="container">
+
+                    <div class="table-responsive-sm">
+                    <table class="table table-bordered table-hover table-sm" id="tablaRegistros">
+
+
+                        <thead>
+
+                            <tr>
+                                <th>N°</th>
+                                <th>Producto</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Talla</th>
+                                <th>Sub-Total</th>
+
+                                <th> Eliminar</th>
+
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>1</td>
+
+                                <td>
+                                    <img src="../../admin/Vistas/img/foco.jpg" class="img-fluid imagenUno" alt=""
+                                        width="50px">
+
+                                </td>
+
+                                <td>FOCO SOLAR CON CONTROL REMOTO 30 WATT</td>
+
+
+                                <td>12000</td>
+
+                                <td>4</td>
+
+                                <td>n/a</td>
+
+                                <td>60000</td>
+
+
+
+                                <td>
+
+                                    <div class="btn-group">
+
+                                        <button class="btn btn-danger BorrarSlide"><i class="fa fa-times"></i></button>
+
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+
+                <div class="container">
+
+                    <h4>TOTAL: $ <strong>60000</strong> </h4>
+
+                </div>
+
+                <button type="button" class="btn btn-success" data-dismiss="modal">Contactar con vendedor</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Seguir Comprando</button>
 
 
             </div>
