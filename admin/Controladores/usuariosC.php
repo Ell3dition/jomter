@@ -26,22 +26,22 @@ class UsuariosC
 
                 if ($respuesta["nombre_usuario"] == $_POST["usuario-Ing"] && $respuesta["pass"] == $_POST["clave-Ing"]) {
 
-                        $_SESSION["Ingreso"] = true;
-                        $_SESSION["id"] = $respuesta["id"];
-                        $_SESSION["usuario"] = $respuesta["nombre_usuario"];
-                        $_SESSION["pass"] = $respuesta["pass"];
-                        $_SESSION["foto"] = $respuesta["foto"];
-                        $_SESSION["rol"] = $respuesta["rol"];
+                    $_SESSION["Ingreso"] = true;
+                    $_SESSION["id"] = $respuesta["id"];
+                    $_SESSION["usuario"] = $respuesta["nombre_usuario"];
+                    $_SESSION["pass"] = $respuesta["pass"];
+                    $_SESSION["foto"] = $respuesta["foto"];
+                    $_SESSION["rol"] = $respuesta["rol"];
 
-                        $nombre = $_SESSION["usuario"];
-                        $id = $respuesta["id"];
+                    $nombre = $_SESSION["usuario"];
+                    $id = $respuesta["id"];
 
                     echo '<script>
                                 
 
                         window.location = "inicio";
                        
-                        window.alert("Estoy aqui pero sin session '.$nombre.' id es :'.$id.'");
+                        window.alert("Estoy aqui pero sin session ' . $nombre . ' id es :' . $id . '");
 
                         </script>';
                 } else {
@@ -62,59 +62,14 @@ class UsuariosC
 
     //VER USUARIO
 
-    public function VerUsuarioC()
+    static public function VerUsuarioC()
     {
 
         $tablaBD = "usuarios";
 
         $respuesta = UsuariosM::VerUsuarioM($tablaBD);
 
-        foreach ($respuesta as $key => $value) {
-
-            echo '<tr>
-
-                <td>' . ($key + 1) . '</td>
-                <td>' . $value["usuario"] . '</td>
-                <td>' . $value["pass"] . '</td>';
-
-            if ($value["foto"] != "") {
-
-                echo '<td>
-                
-                    <img src="' . $value["foto"] . '" class="user-image" alt="User Image" width="40px;">
-                    
-                    
-                    </td>';
-            } else {
-
-                echo '<td>
-                    
-                    <img src="Vistas/img/usuarios/defecto.png" class="user-image" alt="User Image" width="40px";>
-                    
-                    </td>';
-            }
-
-
-
-            echo '<td>' . $value["rol"] . '</td>
-
-                <td>
-                
-                <div class="btn-group">
-                
-                <button class="btn btn-success EditarU" Uid="' . $value["id"] . '">
-                <i class="fa fa-pencil" data-toggle="modal" data-target="#EditarU"></i></button>
-
-                <button class="btn btn-danger BorrarU" Uid="' . $value["id"] . '"  Ufoto="' . $value["foto"] . '">
-                <i class="fa fa-times"></i></button>
-                
-                </div>
-                
-                
-                </td>
-                
-                </tr>';
-        }
+        return $respuesta;
     }
 
 
@@ -124,23 +79,23 @@ class UsuariosC
     {
 
 
-        if (isset($_POST["usuarioN"])) {
+        if (isset($_POST["nombreUsuarioN"])) {
 
             $rutaImg = "";
 
-            if (isset($_FILES["fotoN"]["tmp_name"]) && !empty($_FILES["fotoN"]["tmp_name"])) {
+            if (isset($_FILES["imgUsuarioN"]["tmp_name"]) && !empty($_FILES["imgUsuarioN"]["tmp_name"])) {
 
-                if ($_FILES["fotoN"]["type"] == "image/jpeg") {
+                if ($_FILES["imgUsuarioN"]["type"] == "image/jpeg") {
 
                     $nombre = mt_rand(10, 999);
                     $rutaImg = "Vistas/img/usuarios/U" . $nombre . ".jpg";
-                    $foto = imagecreatefromjpeg($_FILES["fotoN"]["tmp_name"]);
+                    $foto = imagecreatefromjpeg($_FILES["imgUsuarioN"]["tmp_name"]);
                     imagejpeg($foto, $rutaImg);
-                } else if ($_FILES["fotoN"]["type"] == "image/png") {
+                } else if ($_FILES["imgUsuarioN"]["type"] == "image/png") {
 
                     $nombre = mt_rand(10, 999);
                     $rutaImg = "Vistas/img/usuarios/U" . $nombre . ".png";
-                    $foto = imagecreatefrompng($_FILES["fotoN"]["tmp_name"]);
+                    $foto = imagecreatefrompng($_FILES["imgUsuarioN"]["tmp_name"]);
                     imagepng($foto, $rutaImg);
                 }
             }
@@ -148,7 +103,7 @@ class UsuariosC
 
             $tablaBD = "usuarios";
 
-            $datosC = array("usuario" => $_POST["usuarioN"], "pass" => $_POST["claveN"], "rol" => $_POST["rolN"], "foto" => $rutaImg);
+            $datosC = array("usuario" => $_POST["nombreUsuarioN"], "pass" => $_POST["passUsuarioN"], "rol" => $_POST["rolUsuarioN"], "foto" => $rutaImg);
 
 
             $respuesta = UsuariosM::CrearUsuariosM($tablaBD, $datosC);
@@ -237,58 +192,69 @@ class UsuariosC
 
 
 
-    //ver perfil del usuario
 
-    public function VerPerfilC()
+
+    public function ActualizarUsuariosC()
     {
 
 
-        $tablaBD = "usuarios";
 
-        $id = $_SESSION["id"];
+        if (isset($_POST["idUsuarioEd"])) {
 
-        $respuesta = UsuariosM::VerPerfilM($tablaBD, $id);
+            $rutaImg = $_POST["imgActualEd"];
 
 
-        echo '<tr>
+            if (isset($_FILES["imgUsuarioEd"]["tmp_name"]) && !empty(($_FILES["imgUsuarioEd"]["tmp_name"]))) {
 
-        <td>' . $respuesta["usuario"] . '</td>
-        <td>' . $respuesta["pass"] . '</td>';
 
-        if ($respuesta["foto"] != "") {
+                if (!empty($_POST["imgActualEd"])) {
 
-            echo '<td>
-        
-            <img src="' . $respuesta["foto"] . '" class="user-image" alt="User Image" width="40px;">
-            
-            
-            </td>';
-        } else {
+                    unlink($_POST["imgActualEd"]);
+                }
 
-            echo '<td>
-            
-            <img src="Vistas/img/usuarios/defecto.png" class="user-image" alt="User Image" width="40px";>
-            
-            </td>';
+                if (($_FILES["imgUsuarioEd"]["type"] == "image/jpeg")) {
+
+                    $nombre = mt_rand(10, 999);
+
+                    $rutaImg = "Vistas/img/productos/P" . $nombre . ".jpg";
+
+                    $imagen = imagecreatefromjpeg($_FILES["imgUsuarioEd"]["tmp_name"]);
+
+                    imagejpeg($imagen, $rutaImg);
+                }
+
+
+                if (($_FILES["imgUsuarioEd"]["type"] == "image/png")) {
+
+                    $nombre = mt_rand(10, 999);
+
+                    $rutaImg = "Vistas/img/productos/P" . $nombre . ".png";
+
+                    $imagen = imagecreatefrompng($_FILES["imgUsuarioEd"]["tmp_name"]);
+
+                    imagepng($imagen, $rutaImg);
+                }
+            }
+
+
+
+            $tablaBD = "usuarios";
+            $datosC = array("id" => $_POST["idUsuarioEd"], "usuario" => $_POST["nombreUsuarioEd"], "pass" => $_POST["passUsuarioEd"], "rol" => $_POST["rolUsuarioEd"], "foto" => $rutaImg);
+            $respuesta = UsuariosM::ActualizarUsuariosM($tablaBD, $datosC);
+            if ($respuesta == true) {
+                echo '<script>
+               window.location = "usuarios";
+           </script>';
+            } else {
+
+
+                echo '<script>
+                
+            window.alert("ERROR AL ACTUALIZAR");
+                
+
+        </script>';
+            }
         }
-
-
-
-        echo '
-
-        <td>
-        
-        <div class="btn-group">
-        
-        <button class="btn btn-success EditarU" Uid="' . $respuesta["id"] . '">
-        <i class="fa fa-pencil" data-toggle="modal" data-target="#EditarU"></i></button>
-
-        
-        </div>
-        
-        
-        </td>
-        
-        </tr>';
     }
 }

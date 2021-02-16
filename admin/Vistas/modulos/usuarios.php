@@ -20,7 +20,7 @@
                     <div class="row my-3 justify-content-center">
                         <div class="col-md-2">
                             <div class="input-group">
-                                <button id="CrearProducto" class="btn btn-outline-success" data-toggle="modal" data-target="#crearProducto">Crear Usuario <i class="fas fa-user"></i></button>
+                                <button id="CrearProducto" class="btn btn-outline-success" data-toggle="modal" data-target="#CrearUsuario">Crear Usuario <i class="fas fa-user"></i></button>
                             </div>
                         </div>
                     </div>
@@ -42,6 +42,7 @@
                             <th>Foto</th>
                             <th>Nombre</th>
                             <th>Contraseña</th>
+                            <th>Rol</th>
                             <th>Editar / Eliminar</th>
                         </tr>
 
@@ -51,32 +52,60 @@
 
                         <?php
 
-                        $item = null;
 
-                        $verP = ProductosC::VerProductosC($item);
 
-                        $verP = ProductosC::VerProductosC($item);
+                        $VerUsuario = UsuariosC::VerUsuarioC();
 
-                        foreach ($verP as $key => $value) {
+                        foreach ($VerUsuario as $key => $value) {
 
-                            echo '
-    
-    <tr>
-    <td>' . ($key + 1) . '</td>
-    <td> <img src="' . $value["IMG_CUATRO"] . '" class="img-fluid" alt="" width="50px"></td>
-    <td>' . $value["PRECIO_PRO"] . '</td>
-    <td>' . $value["STOCK_PRO"] . '</td>
-    <td>
-       <div class="btn-group">
-            <button class="btn btn-success EditarProducto" pId= "' . $value["id"] . '"  data-toggle="modal" data-target="#editarProducto"><i class="fa fa-pencil-alt"></i></button>
-            <button class="btn btn-danger BorrarProducto" imgUno = "' . $value["IMG_UNO"] . '" 
-            imgDos = "' . $value["IMG_DOS"] . '" imgTres = "' . $value["IMG_TRES"] . '" imgCuatro = "' . $value["IMG_CUATRO"] . '" pId= "' . $value["id"] . '"><i class="fa fa-times"></i></button>
-        </div>
-    </td>
-</tr>
+                            echo '<tr>
 
-    ';
+      <td>' . ($key + 1) . '</td>';
+
+                            if ($value["foto"] != "") {
+
+                                echo '<td>
+          
+              <img src="' . $value["foto"] . '" class="user-image" alt="User Image" width="100px;">
+              
+              
+              </td>';
+                            } else {
+
+                                echo '<td>
+              
+              <img src="Vistas/img/defecto.png" class="user-image" alt="User Image" width="100px";>
+              
+              </td>';
+                            }
+
+
+
+                            echo '    <td>' . $value["nombre_usuario"] . '</td>
+      <td>' . $value["pass"] . '</td>
+
+      <td>' . $value["rol"] . '</td>
+
+      <td>
+      
+      <div class="btn-group">
+      
+      <button class="btn btn-success EditarU" Uid="' . $value["id"] . '"  data-toggle="modal" data-target="#EditarUsuario">
+      <i class="fa fa-pencil-alt"></i></button>
+
+      <button class="btn btn-danger BorrarU" Uid="' . $value["id"] . '"  Ufoto="' . $value["foto"] . '">
+      <i class="fa fa-times"></i></button>
+      
+      </div>
+      
+      
+      </td>
+      
+      </tr>';
                         }
+
+
+
                         ?>
 
 
@@ -96,14 +125,14 @@
 
 <?php
 
-$borrar = new ProductosC();
-$borrar->BorrarProductosC();
+$borrar = new UsuariosC();
+$borrar->BorrarUsuariosC();
 
 ?>
 
 
 <!--MODAL CREAR -->
-<div class="modal fade" role="dialog" id="crearProducto">
+<div class="modal fade" role="dialog" id="CrearUsuario">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form form method="post" role="form" enctype="multipart/form-data">
@@ -115,23 +144,33 @@ $borrar->BorrarProductosC();
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="nombreProductoN">Nombre </label>
-                                    <input type="text" class="form-control input-lg" name="nombreProductoN" id="nombreProductoN">
+                                    <label for="nombreUsuarioN">Nombre </label>
+                                    <input type="text" class="form-control input-lg" name="nombreUsuarioN" id="nombreUsuarioN">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="precioProductoN">Contraseña </label>
-                                    <input type="text" class="form-control input-lg" name="precioProductoN" id="precioProductoN">
+                                    <label for="passUsuarioN">Contraseña </label>
+                                    <input type="text" class="form-control input-lg" name="passUsuarioN" id="passUsuarioN">
                                 </div>
                             </div>
 
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="rolUsuarioN">Rol </label>
+                                    <select class="custom-select" name="rolUsuarioN" id="rolUsuarioN">
+                                        <option value="0">Seleccione Rol</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Vendedor">Vendedor</option>
+                                    </select>
+                                </div>
+                            </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="img1N">Foto </label>
-                                    <input type="file" class="form-control input-lg" name="img1N" id="img1N">
+                                    <label for="imgUsuarioN">Foto </label>
+                                    <input type="file" class="form-control input-lg" name="imgUsuarioN" id="imgUsuarioN">
                                 </div>
 
                             </div>
@@ -148,8 +187,8 @@ $borrar->BorrarProductosC();
 
                 <?php
 
-                $crearProducto = new ProductosC();
-                $crearProducto->CrearProductoC();
+                $crearProducto = new UsuariosC();
+                $crearProducto->CrearUsuariosC();
 
                 ?>
 
@@ -160,7 +199,7 @@ $borrar->BorrarProductosC();
 
 
 <!-- modal editar  -->
-<div class="modal fade" role="dialog" id="editarProducto">
+<div class="modal fade" role="dialog" id="EditarUsuario">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form form method="post" role="form" enctype="multipart/form-data">
@@ -172,77 +211,38 @@ $borrar->BorrarProductosC();
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="nombreProductoEd">Nombre </label>
-                                    <input type="text" class="form-control input-lg" name="nombreProductoEd" id="nombreProductoEd">
+                                    <label for="nombreUsuarioEd">Nombre </label>
+                                    <input type="text" class="form-control input-lg" name="nombreUsuarioEd" id="nombreUsuarioEd">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="precioProductoEd">Precio </label>
-                                    <input type="text" class="form-control input-lg" name="precioProductoEd" id="precioProductoEd">
+                                    <label for="passUsuarioEd">Contraseña </label>
+                                    <input type="text" class="form-control input-lg" name="passUsuarioEd" id="passUsuarioEd">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="stockProductoEd">Stock </label>
-                                    <input type="number" class="form-control input-lg" name="stockProductoEd" id="stockProductoEd">
-                                </div>
-                            </div>
-
-                            <div class="col-md-10">
-                                <div class="form-group">
-
-                                    <label for="categoriaProductoEd">Categoría </label>
-                                    <select class="custom-select" name="categoriaProductoEd" id="categoriaProductoEd">
-                                        <option value="0">Seleccione Categoría</option>
-                                        <option value="Belleza">Belleza</option>
-                                        <option value="Vestuario">Vestuario y Hogar</option>
-                                        <option value="Tecnología">Tecnología</option>
-                                        <option value="Jugueteria">Jugueteria</option>
-                                        <option value="Iluminación">Iluminación</option>
+                                    <label for="rolUsuarioEd">Rol </label>
+                                    <select class="custom-select" name="rolUsuarioEd" id="rolUsuarioEd">
+                                        <option value="0">Seleccione Rol</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Vendedor">Vendedor</option>
                                     </select>
-
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="tallaProductoEd">Talla </label>
-                                    <input type="text" class="form-control input-lg" name="tallaProductoEd" id="tallaProductoEd">
-                                </div>
-                            </div>
-
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label for="img1Ed">Imagen Uno </label>
-                                    <input type="file" class="form-control input-lg" name="img1Ed" id="img1Ed">
-                                    <img src="" class="img-fluid UnoEd" alt="" width="100px">
-                                    <input type="hidden" class="form-control input-lg" name="imagenUnoActual" id="imagenUnoActual">
-                                    <input type="hidden" class="form-control input-lg" name="idProductoEd" id="idProductoEd">
+                                    <label for="imgUsuarioEd">Foto </label>
+                                    <input type="file" class="form-control input-lg" name="imgUsuarioEd" id="imgUsuarioEd">
+                                    <img src="" class="img-fluid visor" alt="" width="150px">
+                                    <input type="text" name="idUsuarioEd" id="idUsarioEd">
+                                    <input type="text" name="imgActualEd" id="imgActualEd">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="img2Ed">Imagen Dos </label>
-                                    <input type="file" class="form-control input-lg" name="img2Ed" id="img2Ed">
-                                    <img src="" class="img-fluid DosEd" alt="" width="100px">
-                                    <input type="hidden" class="form-control input-lg" name="imagenDosActual" id="imagenDosActual">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="img3Ed">Imagen Tres </label>
-                                    <input type="file" class="form-control input-lg" name="img3Ed" id="img3Ed">
-                                    <img src="" class="img-fluid TresEd" alt="" width="100px">
-                                    <input type="hidden" class="form-control input-lg" name="imagenTresActual" id="imagenTresActual">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="img4Ed">Imagen Cuatro </label>
-                                    <input type="file" class="form-control input-lg" name="img4Ed" id="img4Ed">
-                                    <img src="" class="img-fluid CuatroEd" alt="" width="100px">
-                                    <input type="hidden" class="form-control input-lg" name="imagenCuatroActual" id="imagenCuatroActual">
-                                </div>
                             </div>
                         </div>
 
@@ -250,16 +250,15 @@ $borrar->BorrarProductosC();
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Guardar</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-
+                    <button type="submit" class="btn btn-success">Guardar</button>
 
                 </div>
 
                 <?php
 
-                $actualizarProducto = new ProductosC();
-                $actualizarProducto->ActualizarProductoC();
+                $Actualizar = new UsuariosC();
+                $Actualizar->ActualizarUsuariosC();
 
                 ?>
 

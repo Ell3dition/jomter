@@ -132,6 +132,9 @@ session_start();
 
   <script src="Vistas/js/cargarImagens.js"></script>
   <script src="Vistas/js/nosotros.js"></script>
+  <script src="Vistas/js/usuarios.js"></script>
+
+
 
 
 </body>

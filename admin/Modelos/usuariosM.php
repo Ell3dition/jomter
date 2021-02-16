@@ -13,7 +13,7 @@
             $pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
             $pdo -> execute();
             return $pdo -> fetch();
-            $pdo -> close();
+            $pdo = null;
         }
 
 
@@ -26,7 +26,7 @@
 
             $pdo -> execute();
             return $pdo -> fetchAll();
-            $pdo -> close();
+            $pdo = null;
     
         }
 
@@ -36,7 +36,7 @@
 
         static public function CrearUsuariosM($tablaBD, $datosC){
 
-            $pdo = conexionBD::cBD()->prepare("INSERT INTO $tablaBD (usuario,pass,rol,foto) VALUES (:usuario, :pass, :rol, :foto)");
+            $pdo = conexionBD::cBD()->prepare("INSERT INTO $tablaBD (nombre_usuario,pass,foto,rol) VALUES (:usuario, :pass, :foto, :rol)");
 
             $pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
             $pdo -> bindParam(":pass", $datosC["pass"], PDO::PARAM_STR);
@@ -53,7 +53,7 @@
 
             }
 
-            $pdo -> close();
+            $pdo = null;
         }
 
 
@@ -74,7 +74,7 @@
 
             }
 
-            $pdo -> close();
+            $pdo = null;
 
         }
 
@@ -101,7 +101,7 @@
 
         }
 
-        $pdo -> close();
+        $pdo = null;
 
 
 
@@ -123,12 +123,38 @@ static public function VerPerfilM($tablaBD,$id){
     
     return $pdo -> fetch();
     
-    $pdo -> close();
+    $pdo = null;
 
 
 
 }
 
+
+//actualizar
+
+
+static public function ActualizarUsuariosM($tablaBD, $datosC){
+
+    $pdo = conexionBD::cBD()->prepare("UPDATE $tablaBD SET nombre_usuario = :usuario, pass = :pass, foto = :foto, rol = :rol WHERE id = :id");
+
+    $pdo -> bindParam(":id", $datosC["id"], PDO::PARAM_STR);
+    $pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
+    $pdo -> bindParam(":pass", $datosC["pass"], PDO::PARAM_STR);
+    $pdo -> bindParam(":rol", $datosC["rol"], PDO::PARAM_STR);
+    $pdo -> bindParam(":foto", $datosC["foto"], PDO::PARAM_STR);
+
+    if($pdo->execute()){
+        
+        return true;
+
+    }else{
+
+        return false;
+
+    }
+
+    $pdo = null;
+}
 
 
 }
