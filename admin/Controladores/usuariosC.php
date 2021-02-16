@@ -24,11 +24,11 @@ class UsuariosC
 
 
 
-                if ($respuesta["usuario"] == $_POST["usuario-Ing"] && $respuesta["pass"] == $_POST["clave-Ing"]) {
+                if ($respuesta["nombre_usuario"] == $_POST["usuario-Ing"] && $respuesta["pass"] == $_POST["clave-Ing"]) {
 
                         $_SESSION["Ingreso"] = true;
                         $_SESSION["id"] = $respuesta["id"];
-                        $_SESSION["usuario"] = $respuesta["usuario"];
+                        $_SESSION["usuario"] = $respuesta["nombre_usuario"];
                         $_SESSION["pass"] = $respuesta["pass"];
                         $_SESSION["foto"] = $respuesta["foto"];
                         $_SESSION["rol"] = $respuesta["rol"];

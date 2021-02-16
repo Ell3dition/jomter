@@ -22,32 +22,44 @@
 
                         <div class="col-md-2">
                             <div class="input-group">
-                                <button id="CrearProucto" class="btn btn-outline-success" data-toggle="modal" data-target="#crearProducto">Crear Productos</button>
+                                <button id="CrearProducto" class="btn btn-outline-success" data-toggle="modal" data-target="#crearProducto">Crear Productos</button>
                             </div>
                         </div>
+
                         <div class="col-md-4">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <select class="custom-select" name="selectProfesorRecursosN" id="selectProfesorRecursosN">
-                                        <option value="0">Seleccione Categoría</option>
-                                        <option value="Belleza">Belleza</option>
-                                        <option value="Vestuario">Vestuario y Hogar</option>
-                                        <option value="Tecnología">Tecnología</option>
-                                        <option value="Jugueteria">Jugueteria</option>
-                                        <option value="Iluminación">Iluminación</option>
-                                    </select>
+                            <form form method="post" role="form" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <select class="custom-select" name="selectCategproaBUscar" id="selectCategproaBUscar">
+                                            <option value="0">Seleccione Categoría</option>
+                                            <option value="Belleza">Belleza</option>
+                                            <option value="Vestuario">Vestuario y Hogar</option>
+                                            <option value="Tecnología">Tecnología</option>
+                                            <option value="Jugueteria">Jugueteria</option>
+                                            <option value="Iluminación">Iluminación</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
 
 
                         <div class="col-md-4">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Ingrese parametro para búsqueda" aria-label="Ingrese parametro para búsqueda" aria-describedby="buscarPro">
-                                <button class="btn btn-outline-primary" type="button" id="buscarPro">Buscar</button>
+
+                                <button class="btn btn-outline-primary" type="submit" id="buscarPro">Buscar</button>
+                                <button class="btn btn-outline-warning mx-2" type="submit" id="buscarPro">Mostrar Todo</button>
                             </div>
                         </div>
 
+                        <?php
+                        $item = null;
+
+                        $verP = ProductosC::VerProductosC($item);
+
+                        ?>
+
+
+                        </form>
                     </div>
                 </div>
 
@@ -82,44 +94,58 @@
 
                     <tbody>
 
-                        <tr>
-
-                            <td>1</td>
-
-                            <td>FOCO SOLAR CON CONTROL REMOTO 30 WATT</td>
+                        <?php
 
 
-                            <td>12000</td>
 
-                            <td>4</td>
+                        $verP = ProductosC::VerProductosC($item);
 
-                            <td>
-                                <img src="Vistas/img/foco.jpg" class="img-fluid imagenUno" alt="" width="50px">
-                                <img src="Vistas/img/defecto.png" class="img-fluid" alt="" width="50px">
-                                <img src="Vistas/img/defecto.png" class="img-fluid" alt="" width="50px">
-                                <img src="Vistas/img/defecto.png" class="img-fluid" alt="" width="50px">
+                        foreach ($verP as $key => $value) {
 
-                            </td>
+                            echo '
+    
+    <tr>
+
+    <td>' . ($key + 1) . '</td>
+
+    <td>' . $value["NOMBRE_PRO"] . '</td>
 
 
-                            <td>Tecno</td>
-                            <td></td>
-                            <td>
+    <td>' . $value["PRECIO_PRO"] . '</td>
 
-                                <div class="btn-group">
+    <td>' . $value["STOCK_PRO"] . '</td>
 
-                                    <button class="btn btn-success EditarSlide" data-toggle="modal" data-target="#editarProducto"><i class="fa fa-pencil-alt"></i></button>
-                                    <button class="btn btn-danger BorrarSlide"><i class="fa fa-times"></i></button>
+    <td>
+        <img src="' . $value["IMG_UNO"] . '"  imgUno = "' . $value["IMG_UNO"] . '" 
+        imgDos = "' . $value["IMG_DOS"] . '" imgTres = "' . $value["IMG_TRES"] . '" imgCuatro = "' . $value["IMG_CUATRO"] . '" class="img-fluid imagenUno" alt="" width="50px">
+        <img src="' . $value["IMG_DOS"] . '" class="img-fluid" alt="" width="50px">
+        <img src="' . $value["IMG_TRES"] . '" class="img-fluid" alt="" width="50px">
+        <img src="' . $value["IMG_CUATRO"] . '" class="img-fluid" alt="" width="50px">
 
-                                </div>
+    </td>
 
-                            </td>
-                        </tr>
+
+    <td>' . $value["CATEGORIA_PRO"] . '</td>
+    <td>' . $value["TALLA"] . '</td>
+    <td>
+
+        <div class="btn-group">
+
+            <button class="btn btn-success EditarProducto" pId= "' . $value["id"] . '"  data-toggle="modal" data-target="#editarProducto"><i class="fa fa-pencil-alt"></i></button>
+            <button class="btn btn-danger BorrarProducto" imgUno = "' . $value["IMG_UNO"] . '" 
+            imgDos = "' . $value["IMG_DOS"] . '" imgTres = "' . $value["IMG_TRES"] . '" imgCuatro = "' . $value["IMG_CUATRO"] . '" pId= "' . $value["id"] . '"><i class="fa fa-times"></i></button>
+
+        </div>
+    </td>
+</tr>
+
+    ';
+                        }
+                        ?>
+
 
                     </tbody>
-
                 </table>
-
             </div>
             <!-- /.box-body -->
         </div>
@@ -146,10 +172,10 @@
 
                     <div class="row justify-content-center">
 
-                        <div class="col-md-5"><img src="Vistas/img/foco.jpg" class="img-fluid" alt="" width="300px"></div>
-                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid" alt="" width="300px"></div>
-                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid" alt="" width="300px"></div>
-                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid" alt="" width="300px"></div>
+                        <div class="col-md-5"><img src="Vistas/img/foco.jpg" class="img-fluid Uno" alt="" width="300px"></div>
+                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid Dos" alt="" width="300px"></div>
+                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid Tres" alt="" width="300px"></div>
+                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid Cuatro" alt="" width="300px"></div>
                     </div>
 
                 </div>
@@ -164,69 +190,100 @@
 
 
 
+
 <!--MODAL CREAR -->
-<div class="modal fade" id="crearProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" role="dialog" id="crearProducto">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
+            <form form method="post" role="form" enctype="multipart/form-data">
 
-                <div class="container mt-5">
-                    <form action="" id="FormularioGuardarRecurso" method="POST">
+                <div class="modal-body">
+                    <div class="container mt-5">
+
                         <div class="row justify-content-center">
 
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="nombreProductoN">Nombre </label>
-                                    <input type="text" class="form-control input-lg" id="nombreProductoN">
+                                    <input type="text" class="form-control input-lg" name="nombreProductoN" id="nombreProductoN">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="precioProductoN">Precio </label>
-                                    <input type="text" class="form-control input-lg" id="precioProductoN">
+                                    <input type="text" class="form-control input-lg" name="precioProductoN" id="precioProductoN">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="precioProductoN">Stock </label>
-                                    <input type="number" class="form-control input-lg" id="precioProductoN">
+                                    <label for="stockProductoN">Stock </label>
+                                    <input type="number" class="form-control input-lg" name="stockProductoN" id="stockProductoN">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="precioProductoN">Imagen Uno </label>
-                                    <input type="file" class="form-control input-lg" id="precioProductoN">
+
+                                    <label for="categoriaProductoN">Categoría </label>
+                                    <select class="custom-select" name="categoriaProductoN" id="categoriaProductoN">
+                                        <option value="0">Seleccione Categoría</option>
+                                        <option value="Belleza">Belleza</option>
+                                        <option value="Vestuario">Vestuario y Hogar</option>
+                                        <option value="Tecnología">Tecnología</option>
+                                        <option value="Jugueteria">Jugueteria</option>
+                                        <option value="Iluminación">Iluminación</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="tallaProductoN">Talla </label>
+                                    <input type="text" class="form-control input-lg" name="tallaProductoN" id="tallaProductoN">
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="img1N">Imagen Uno </label>
+                                    <input type="file" class="form-control input-lg" name="img1N" id="img1N">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="precioProductoN">Imagen Dos </label>
-                                    <input type="file" class="form-control input-lg" id="precioProductoN">
+                                    <label for="img2N">Imagen Dos </label>
+                                    <input type="file" class="form-control input-lg" name="img2N" id="img2N">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="precioProductoN">Imagen Tres </label>
-                                    <input type="file" class="form-control input-lg" id="precioProductoN">
+                                    <label for="img3N">Imagen Tres </label>
+                                    <input type="file" class="form-control input-lg" name="img3N" id="img3N">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="precioProductoN">Imagen Cuatro </label>
-                                    <input type="file" class="form-control input-lg" id="precioProductoN">
+                                    <label for="img4N">Imagen Cuatro </label>
+                                    <input type="file" class="form-control input-lg" name="img4N" id="img4N">
                                 </div>
                             </div>
                         </div>
 
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+
                 </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <?php
 
-            </div>
+                $crearProducto = new ProductosC();
+                $crearProducto->CrearProductoC();
 
+                ?>
 
             </form>
         </div>
@@ -234,75 +291,109 @@
 </div>
 
 
-
-<!--MODAL EDITAR -->
-<div class="modal fade" id="editarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- modal editar  -->
+<div class="modal fade" role="dialog" id="editarProducto">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
+            <form form method="post" role="form" enctype="multipart/form-data">
 
+                <div class="modal-body">
+                    <div class="container mt-5">
 
-                <div class="container mt-5">
-                    <form action="" id="FormularioGuardarRecurso" method="POST">
                         <div class="row justify-content-center">
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="nombreProductoN">Nombre </label>
-                                    <input type="text" class="form-control input-lg" id="nombreProductoN">
+                                    <label for="nombreProductoEd">Nombre </label>
+                                    <input type="text" class="form-control input-lg" name="nombreProductoEd" id="nombreProductoEd">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="precioProductoN">Precio </label>
-                                    <input type="text" class="form-control input-lg" id="precioProductoN">
+                                    <label for="precioProductoEd">Precio </label>
+                                    <input type="text" class="form-control input-lg" name="precioProductoEd" id="precioProductoEd">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="precioProductoN">Stock </label>
-                                    <input type="number" class="form-control input-lg" id="precioProductoN">
+                                    <label for="stockProductoEd">Stock </label>
+                                    <input type="number" class="form-control input-lg" name="stockProductoEd" id="stockProductoEd">
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="precioProductoN">Imagen Uno </label>
-                                    <input type="file" class="form-control input-lg" id="precioProductoN">
 
-                                    <input type="text" id="idProducto">
-                                    <input type="text" id="imagenUnoAntes">
-                                    <input type="text" id="imagenDosAntes">
-                                    <input type="text" id="imagenTresAntes">
-                                    <input type="text" id="imagenCuatroAntes">
+                                    <label for="categoriaProductoEd">Categoría </label>
+                                    <select class="custom-select" name="categoriaProductoEd" id="categoriaProductoEd">
+                                        <option value="0">Seleccione Categoría</option>
+                                        <option value="Belleza">Belleza</option>
+                                        <option value="Vestuario">Vestuario y Hogar</option>
+                                        <option value="Tecnología">Tecnología</option>
+                                        <option value="Jugueteria">Jugueteria</option>
+                                        <option value="Iluminación">Iluminación</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="tallaProductoEd">Talla </label>
+                                    <input type="text" class="form-control input-lg" name="tallaProductoEd" id="tallaProductoEd">
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="img1Ed">Imagen Uno </label>
+                                    <input type="file" class="form-control input-lg" name="img1Ed" id="img1Ed">
+                                    <img src="" class="img-fluid UnoEd" alt="" width="100px">
+                                    <input type="hidden" class="form-control input-lg" name="imagenUnoActual" id="imagenUnoActual">
+                                    <input type="hidden" class="form-control input-lg" name="idProductoEd" id="idProductoEd">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="precioProductoN">Imagen Dos </label>
-                                    <input type="file" class="form-control input-lg" id="precioProductoN">
+                                    <label for="img2Ed">Imagen Dos </label>
+                                    <input type="file" class="form-control input-lg" name="img2Ed" id="img2Ed">
+                                    <img src="" class="img-fluid DosEd" alt="" width="100px">
+                                    <input type="hidden" class="form-control input-lg" name="imagenDosActual" id="imagenDosActual">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="precioProductoN">Imagen Tres </label>
-                                    <input type="file" class="form-control input-lg" id="precioProductoN">
+                                    <label for="img3Ed">Imagen Tres </label>
+                                    <input type="file" class="form-control input-lg" name="img3Ed" id="img3Ed">
+                                    <img src="" class="img-fluid TresEd" alt="" width="100px">
+                                    <input type="hidden" class="form-control input-lg" name="imagenTresActual" id="imagenTresActual">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="precioProductoN">Imagen Cuatro </label>
-                                    <input type="file" class="form-control input-lg" id="precioProductoN">
+                                    <label for="img4Ed">Imagen Cuatro </label>
+                                    <input type="file" class="form-control input-lg" name="img4Ed" id="img4Ed">
+                                    <img src="" class="img-fluid CuatroEd" alt="" width="100px">
+                                    <input type="hidden" class="form-control input-lg" name="imagenCuatroActual" id="imagenCuatroActual">
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+
+
                 </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <?php
 
-            </div>
+                $actualizarProducto = new ProductosC();
+                $actualizarProducto->ActualizarProductoC();
+
+                ?>
 
             </form>
         </div>

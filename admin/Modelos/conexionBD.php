@@ -7,7 +7,7 @@ class conexionBD {
 
 
         try{
-     $bd = new PDO("mysql:host=190.107.177.243:3306;dbname=cca65106_sistemahc","cca65106_prueba","ASDqwe123GHJtyu567");
+     $bd = new PDO("mysql:host=localhost:3306;dbname=jomter","root","");
         $bd -> exec("set names utf8");
         return $bd;
 

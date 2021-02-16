@@ -8,7 +8,7 @@
 
         static public function IngresoUsuariosM($datosC, $tablaBD){
 
-            $pdo = conexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE usuario = :usuario");
+            $pdo = conexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE nombre_usuario = :usuario");
 
             $pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
             $pdo -> execute();
