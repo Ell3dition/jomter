@@ -53,14 +53,14 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+            <a href="nosotros" class="nav-link">
+              <i class="nav-icon fa fa-university"></i>
               <p>Nosotros</p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="usuarios" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>Usuarios</p>
             </a>

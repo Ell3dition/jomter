@@ -68,9 +68,11 @@ session_start();
     if (isset($_GET["url"])) {
 
       if (
-        $_GET["url"] == "inicio" || $_GET["url"] == "salir" || $_GET["url"] == "productos" ) {
+        $_GET["url"] == "inicio" || $_GET["url"] == "salir" || $_GET["url"] == "productos" || $_GET["url"] == "nosotros"
+        || $_GET["url"] == "usuarios"
+      ) {
 
-        
+
 
         include "modulos/" . $_GET["url"] . ".php";
       }
@@ -127,8 +129,9 @@ session_start();
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  
+
   <script src="Vistas/js/cargarImagens.js"></script>
+  <script src="Vistas/js/nosotros.js"></script>
 
 
 </body>

@@ -57,39 +57,13 @@ $("#tablaRegistros").on("click", ".BorrarProducto", function(){
   var res = confirm("Desea borrar el Registro?");
 
   if(res== true){
-    const idProducto = $(this).attr("pId");
-    const imgUno = $(this).attr("imgUno");
-    const imgDos = $(this).attr("imgDos");
-    const imgTres = $(this).attr("imgTres");
-    const imgCuatro = $(this).attr("imgCuatro");
+    var idProducto = $(this).attr("pId");
+    var imgUno = $(this).attr("imgUno");
+    var imgDos = $(this).attr("imgDos");
+    var imgTres = $(this).attr("imgTres");
+    var imgCuatro = $(this).attr("imgCuatro");
 
-    console.log("El id es "+idProducto);
-    console.log("la imagn es "+imgUno);
-    
-  
-    let datos = [
-      {
-          idProducto: idProducto,
-          imgUno: imgUno,
-          imgDos: imgDos,
-          imgTres: imgTres,
-          imgCuatro: imgCuatro,
-        
-      }];
-
-      console.log(datos);
-
-    $.ajax({
-      url: "Ajax/productosA.php",
-      type: "POST",
-      data: { accion: "eliminarProductos", datos:JSON.stringify(datos)},
-      dataType: "json",
-      success: function (respuesta) {
-        console.log(respuesta);
-      
-      },
-    });
-
+    window.location = "index.php?url=productos&Pid="+idProducto+"&imgUno="+imgUno+"&imgDos="+imgDos+"&imgTres="+imgTres+"&imgCuatro="+imgCuatro;
 
   }
  

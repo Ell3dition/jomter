@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            MANTENEDOR PRODUCTOS
+            MANTENEDOR USUARIOS
         </h1>
 
     </section>
@@ -18,53 +18,13 @@
 
                 <div class="container">
                     <div class="row my-3 justify-content-center">
-
-
                         <div class="col-md-2">
                             <div class="input-group">
-                                <button id="CrearProducto" class="btn btn-outline-success" data-toggle="modal" data-target="#crearProducto">Crear Productos</button>
+                                <button id="CrearProducto" class="btn btn-outline-success" data-toggle="modal" data-target="#crearProducto">Crear Usuario <i class="fas fa-user"></i></button>
                             </div>
                         </div>
-
-                        <div class="col-md-4">
-                            <form form method="post" role="form" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <select class="custom-select" name="selectCategproaBUscar" id="selectCategproaBUscar">
-                                            <option value="0">Seleccione Categoría</option>
-                                            <option value="Belleza">Belleza</option>
-                                            <option value="Vestuario">Vestuario y Hogar</option>
-                                            <option value="Tecnología">Tecnología</option>
-                                            <option value="Jugueteria">Jugueteria</option>
-                                            <option value="Iluminación">Iluminación</option>
-                                        </select>
-                                    </div>
-                                </div>
-                        </div>
-
-
-                        <div class="col-md-4">
-                            <div class="input-group mb-3">
-
-                                <button class="btn btn-outline-primary" type="submit" id="buscarPro">Buscar</button>
-                                <button class="btn btn-outline-warning mx-2" type="submit" id="buscarPro">Mostrar Todo</button>
-                            </div>
-                        </div>
-
-                        <?php
-                        $item = null;
-
-                        $verP = ProductosC::VerProductosC($item);
-
-                        ?>
-
-
-                        </form>
                     </div>
                 </div>
-
-
-
             </div>
 
 
@@ -79,15 +39,10 @@
 
                         <tr>
                             <th>N°</th>
+                            <th>Foto</th>
                             <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
-                            <th>Imágenes</th>
-                            <th>Categoria</th>
-                            <th>Talla</th>
+                            <th>Contraseña</th>
                             <th>Editar / Eliminar</th>
-
-
                         </tr>
 
                     </thead>
@@ -96,7 +51,9 @@
 
                         <?php
 
+                        $item = null;
 
+                        $verP = ProductosC::VerProductosC($item);
 
                         $verP = ProductosC::VerProductosC($item);
 
@@ -105,36 +62,15 @@
                             echo '
     
     <tr>
-
     <td>' . ($key + 1) . '</td>
-
-    <td>' . $value["NOMBRE_PRO"] . '</td>
-
-
+    <td> <img src="' . $value["IMG_CUATRO"] . '" class="img-fluid" alt="" width="50px"></td>
     <td>' . $value["PRECIO_PRO"] . '</td>
-
     <td>' . $value["STOCK_PRO"] . '</td>
-
     <td>
-        <img src="' . $value["IMG_UNO"] . '"  imgUno = "' . $value["IMG_UNO"] . '" 
-        imgDos = "' . $value["IMG_DOS"] . '" imgTres = "' . $value["IMG_TRES"] . '" imgCuatro = "' . $value["IMG_CUATRO"] . '" class="img-fluid imagenUno" alt="" width="50px">
-        <img src="' . $value["IMG_DOS"] . '" class="img-fluid" alt="" width="50px">
-        <img src="' . $value["IMG_TRES"] . '" class="img-fluid" alt="" width="50px">
-        <img src="' . $value["IMG_CUATRO"] . '" class="img-fluid" alt="" width="50px">
-
-    </td>
-
-
-    <td>' . $value["CATEGORIA_PRO"] . '</td>
-    <td>' . $value["TALLA"] . '</td>
-    <td>
-
-        <div class="btn-group">
-
+       <div class="btn-group">
             <button class="btn btn-success EditarProducto" pId= "' . $value["id"] . '"  data-toggle="modal" data-target="#editarProducto"><i class="fa fa-pencil-alt"></i></button>
             <button class="btn btn-danger BorrarProducto" imgUno = "' . $value["IMG_UNO"] . '" 
             imgDos = "' . $value["IMG_DOS"] . '" imgTres = "' . $value["IMG_TRES"] . '" imgCuatro = "' . $value["IMG_CUATRO"] . '" pId= "' . $value["id"] . '"><i class="fa fa-times"></i></button>
-
         </div>
     </td>
 </tr>
@@ -160,42 +96,10 @@
 
 <?php
 
-    $borrar = new ProductosC();
-    $borrar -> BorrarProductosC();
+$borrar = new ProductosC();
+$borrar->BorrarProductosC();
 
 ?>
-
-
-
-<div class="modal fade" id="imagenUno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Imagenes</h5>
-            </div>
-            <div class="modal-body">
-
-                <div class="container">
-
-                    <div class="row justify-content-center">
-
-                        <div class="col-md-5"><img src="Vistas/img/foco.jpg" class="img-fluid Uno" alt="" width="300px"></div>
-                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid Dos" alt="" width="300px"></div>
-                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid Tres" alt="" width="300px"></div>
-                        <div class="col-md-5"><img src="Vistas/img/defecto.png" class="img-fluid Cuatro" alt="" width="300px"></div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="modal-footer">
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 
 <!--MODAL CREAR -->
@@ -218,61 +122,18 @@
 
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="precioProductoN">Precio </label>
+                                    <label for="precioProductoN">Contraseña </label>
                                     <input type="text" class="form-control input-lg" name="precioProductoN" id="precioProductoN">
                                 </div>
                             </div>
 
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label for="stockProductoN">Stock </label>
-                                    <input type="number" class="form-control input-lg" name="stockProductoN" id="stockProductoN">
-                                </div>
-                            </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
-
-                                    <label for="categoriaProductoN">Categoría </label>
-                                    <select class="custom-select" name="categoriaProductoN" id="categoriaProductoN">
-                                        <option value="0">Seleccione Categoría</option>
-                                        <option value="Belleza">Belleza</option>
-                                        <option value="Vestuario">Vestuario y Hogar</option>
-                                        <option value="Tecnología">Tecnología</option>
-                                        <option value="Jugueteria">Jugueteria</option>
-                                        <option value="Iluminación">Iluminación</option>
-                                    </select>
-
-                                </div>
-                            </div>
-
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label for="tallaProductoN">Talla </label>
-                                    <input type="text" class="form-control input-lg" name="tallaProductoN" id="tallaProductoN">
-                                </div>
-                            </div>
-
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <label for="img1N">Imagen Uno </label>
+                                    <label for="img1N">Foto </label>
                                     <input type="file" class="form-control input-lg" name="img1N" id="img1N">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="img2N">Imagen Dos </label>
-                                    <input type="file" class="form-control input-lg" name="img2N" id="img2N">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="img3N">Imagen Tres </label>
-                                    <input type="file" class="form-control input-lg" name="img3N" id="img3N">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="img4N">Imagen Cuatro </label>
-                                    <input type="file" class="form-control input-lg" name="img4N" id="img4N">
-                                </div>
                             </div>
                         </div>
 

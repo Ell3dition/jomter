@@ -194,53 +194,58 @@ class ProductosC
 
 
     //BORRAR PROPIEDAD
-    static public function BorrarProductosC($datos)
+    static public function BorrarProductosC()
     {
 
-        foreach ($datos as $valor) {
+        if(isset($_GET["Pid"])){
 
-            $idPro = $valor["idProducto"];
-            $imgUno = $valor["imgUno"];
-            $imgDos = $valor["imgDos"];
-            $imgTres = $valor["imgTres"];
-            $imgCuatro = $valor["imgCuatro"];
+            $tablaBD = "productos";
+            $id = $_GET["Pid"];
 
-           
+
+            if($_GET["Pid"] != ""){
+
+
+                unlink($_GET["imgUno"]);
+                unlink($_GET["imgDos"]);
+                unlink($_GET["imgTres"]);
+                unlink($_GET["imgCuatro"]);
+
+            }
+
+
+            $respuesta = ProductosM::BorrarProductosM($tablaBD, $id);
+
+
+
+            if($respuesta == true){
+
+
+                echo '<script>
+                
+                    window.location = "productos";
+                
+                </script>';
+
+
+            }else{
+
+
+                echo '<script>
+                    
+                window.alert("ERROR AL ELIMINAR");
+                    
+
+            </script>';
+
+            }
+
         }
 
-     
-            unlink($imgUno);
-            unlink($imgDos);
-            unlink($imgTres);
-            unlink($imgCuatro);
+
+
+
         
-
-        $tablaBD = "productos";
-        $respuesta = ProductosM::BorrarProductosM($tablaBD, $idPro);
-        if ($respuesta == true) {
-
-
-            echo '<script>
-        
-            window.location = "propiedades";
-        
-        </script>';
-        } else {
-
-
-            echo '<script>
-            
-        window.alert("ERROR AL ELIMINAR");
-            
-
-    </script>';
-        }
-
-        return true;
-
-        //FIN BORRAR PROPIEDAD
-
-
     }
 
 
