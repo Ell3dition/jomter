@@ -74,7 +74,7 @@ class ProductosM extends conexionBD
 
         $pdo->bindParam(":id", $idPro, PDO::PARAM_STR);
 
-     
+
         if ($pdo->execute()) {
 
 
@@ -125,4 +125,12 @@ class ProductosM extends conexionBD
 
 
 
+
+ static public function VerProductosFrontEndM($items)
+    {
+        $pdo = conexionBD::cBD()->prepare("SELECT * FROM productos WHERE CATEGORIA_PRO = '$items'");
+        $pdo->execute();
+        return $pdo->fetchAll();
+        $pdo = null;
+    }
 }//FIN CLASE

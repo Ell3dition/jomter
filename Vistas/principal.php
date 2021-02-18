@@ -47,7 +47,7 @@
                 <div class="row justify-content-center">
 
                                 <div class="col-md-3 col-8 col-sm-5 mt-3">
-                                 <a href="Vistas/modulos/belleza.html"> <div class="card card-block">
+                                 <a href="belleza"> <div class="card card-block">
                                   <img src="https://images.pexels.com/photos/3321416/pexels-photo-3321416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Photo of sunset">
                                     <h5 class="card-title mt-3 mb-3 p-2"><strong>Belleza</strong></h5>
                                     
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>    
 
-                                <div class="col-md-3 col-8 col-sm-5 mt-3 ">
+                                <div class="col-md-3 col-8 col-sm-5 my-4 ">
                                     <div class="card card-block">
                            
                                   <img src="https://images.pexels.com/photos/240225/pexels-photo-240225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Photo of sunset">
@@ -104,7 +104,10 @@
 
 
 
-
+    <footer class="text-center">
+        <p>Desarrollado por <a href="https://sertimac.cl/">SERTIMAC</a>
+        </p>
+    </footer>
 
 
 
@@ -122,3 +125,5 @@
 </body>
 
 </html>
+
+

@@ -412,4 +412,18 @@ class ProductosC
             }
         }
     }
+
+
+    static public function VerProductosFrontEndC($items){
+
+
+        $respuesta = ProductosM::VerProductosFrontEndM($items);
+
+        return $respuesta;
+
+
+    }
+
+
+
 }  //FIN CLASE

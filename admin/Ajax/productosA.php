@@ -16,10 +16,23 @@ class ProductosA
         echo json_encode($respuesta);
     }
 
+
+    public function CargarDesdeFrontEnd()
+    {
+
+        $valor = $_POST["valor"];
+
+        $respuesta = ProductosC::VerProductosFrontEndC($valor);
+        echo json_encode($respuesta);
+    }
 }
 
 
 if ($_POST["accion"] == "productos") {
     $editarU = new ProductosA();
     $editarU->BuscarProductosA();
+} else if ($_POST["accion"] == "cargar") {
+
+    $cargar = new ProductosA();
+    $cargar->CargarDesdeFrontEnd();
 }

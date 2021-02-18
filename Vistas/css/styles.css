@@ -154,3 +154,30 @@ p {
 
 
 }
+
+
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  background: black;
+}
+
+footer p {
+  color: rgb(107, 106, 106);
+}
+
+@media (max-width: 770px) {
+  footer p {
+      margin-top: 8px;
+      font-size: x-small;
+  }
+  .imagenMobil {
+     display: block;
+  }
+  .imagen {
+   display: none;
+  }
+}
