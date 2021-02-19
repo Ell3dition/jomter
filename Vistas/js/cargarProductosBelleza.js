@@ -10,7 +10,6 @@ function cargarProductos() {
     data: { accion: "cargar", valor: valoraBuscar },
     dataType: "json",
     success: function (respuesta) {
-      console.log(respuesta);
       cargarVistaPreviadelCarrito(respuesta);
       respuesta.forEach((registro) => {
         let cuerpo = `<div class="col-md-3 col-9 mt-5">
@@ -40,8 +39,6 @@ function cargarProductos() {
 }
 
 //BORRAR DEL PRODUCTO DEL CARRITO
-
-
 
 function cargarVistaPreviadelCarrito(respuesta) {
   $(".cuerpo").on("click", ".verDetalle", function () {
@@ -90,7 +87,7 @@ function cargarVistaPreviadelCarrito(respuesta) {
 }
 
 function agregaralCarro(e) {
-    $("#agregarProducto").modal('hide');
+  $("#agregarProducto").modal("hide");
   const productoSeleccionado = e.target.parentElement.parentElement;
 
   let cantidaStock = productoSeleccionado.querySelector("p strong").textContent;
@@ -108,7 +105,8 @@ function agregaralCarro(e) {
     imagen: productoSeleccionado.querySelector("img").src,
     nombre: productoSeleccionado.querySelector("h5").textContent,
     cantidad: productoSeleccionado.querySelector(".cantidad").value,
-    subTotal: productoSeleccionado.querySelector(".totalProducto span").textContent,
+    subTotal: productoSeleccionado.querySelector(".totalProducto span")
+      .textContent,
     precioU: productoSeleccionado.querySelector("h6 span").textContent,
     id: productoSeleccionado.querySelector("h5").getAttribute("idProducto"),
   };
@@ -121,8 +119,16 @@ function agregaralCarro(e) {
   if (existentes) {
     const pro = carritoCompras.map((producto) => {
       if (producto.id === Productos.id) {
-        producto.cantidad = Number.parseInt(producto.cantidad)  + Number.parseInt(productoSeleccionado.querySelector(".cantidad").value);
-        producto.subTotal = Number.parseInt(producto.cantidad) * Number.parseInt(productoSeleccionado.querySelector("h6 span").textContent);
+        producto.cantidad =
+          Number.parseInt(producto.cantidad) +
+          Number.parseInt(
+            productoSeleccionado.querySelector(".cantidad").value
+          );
+        producto.subTotal =
+          Number.parseInt(producto.cantidad) *
+          Number.parseInt(
+            productoSeleccionado.querySelector("h6 span").textContent
+          );
         return producto;
       } else {
         return producto;
@@ -162,6 +168,7 @@ function agregaralcarrito() {
 
   calcularTotal();
   BorrarDelCarrito();
+  
 }
 
 function calcularTotal() {
@@ -178,27 +185,18 @@ function calcularTotal() {
   etiquetaTotal.innerHTML = totalPagar;
 }
 
+function BorrarDelCarrito() {
+  const btnBorrar = document.querySelector(".BorrarProductoCarrito");
 
-function BorrarDelCarrito(){
+  btnBorrar.addEventListener("click", (e) => {
+    const productoId = e.target.getAttribute("idP");
 
-    const btnBorrar = document.querySelector('.BorrarProductoCarrito');
+    carritoCompras = carritoCompras.filter(
+      (producto) => producto.id !== productoId
+    );
 
-btnBorrar.addEventListener('click', (e)=>{
+    agregaralcarrito();
 
-   
-        const productoId = e.target.getAttribute('idP');
-
-        carritoCompras = carritoCompras.filter(producto => producto.id !==productoId )
-
-        agregaralcarrito();
-
-
-console.log(productoId);
-   
-
-
-
-})
-
-
+    console.log(productoId);
+  });
 }
