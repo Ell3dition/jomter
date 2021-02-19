@@ -1,5 +1,3 @@
-const valoraBuscar = "Belleza";
-let carritoCompras = [];
 
 cargarProductos();
 
@@ -10,6 +8,15 @@ function cargarProductos() {
     data: { accion: "cargar", valor: valoraBuscar },
     dataType: "json",
     success: function (respuesta) {
+     
+      if(respuesta.length == 0){
+
+        $('#modalSinProductos').modal('show');
+
+        
+        return;
+      }
+
       cargarVistaPreviadelCarrito(respuesta);
       respuesta.forEach((registro) => {
         let cuerpo = `<div class="col-md-3 col-9 mt-5">

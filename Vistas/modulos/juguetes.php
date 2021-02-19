@@ -19,6 +19,8 @@ include "cabeceras.php";
 
 </div>
 
+
+
 <?php
 
     include "modales.php";

@@ -83,19 +83,19 @@
 
                 <ul class="navbar-nav mr-auto" style="background-color: rgb(65, 42, 165);">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong class="color">Belleza</strong></a>
+                        <a class="nav-link" href="belleza"><strong class="color">Belleza</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong class="color">Vesturio y Hogar</strong></a>
+                        <a class="nav-link" href="VestuarioHogar"><strong class="color">Vesturio y Hogar</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong class="color">Tecnología</strong></a>
+                        <a class="nav-link" href="tecnologia"><strong class="color">Tecnología</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong class="color">Juguetes</strong></a>
+                        <a class="nav-link" href="juguetes"><strong class="color">Juguetes</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong class="color">Iluminación</strong></a>
+                        <a class="nav-link" href="iluminacion"><strong class="color">Iluminación</strong></a>
                     </li>
 
                 </ul>

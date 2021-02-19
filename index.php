@@ -20,9 +20,29 @@ if($_GET["url"]== "belleza"){
     $plantilla = new PrincipalC();
     $plantilla -> LlamarPrincipalC();
 
-}else{
+}else if ($_GET["url"] == "tecnologia"){
 
- 
+    $plantilla = new PrincipalC();
+    $plantilla -> LlamarTecnologia();
+
+}else if ($_GET["url"] == "juguetes"){
+
+    $plantilla = new PrincipalC();
+    $plantilla -> LlamarJuguetes();
+
+}else if ($_GET["url"] == "iluminacion"){
+
+    $plantilla = new PrincipalC();
+    $plantilla -> LlamarIluminacion();
+
+}else if ($_GET["url"] == "VestuarioHogar"){
+
+    $plantilla = new PrincipalC();
+    $plantilla -> LlamarVestuarioHogar();
+
+}else{
+    $plantilla = new PrincipalC();
+    $plantilla -> LlamarPrincipalC();
 
 }
 
