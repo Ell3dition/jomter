@@ -34,6 +34,7 @@ $("#tablaRegistros").on("click", ".EditarProducto", function () {
       $("#stockProductoEd").val(respuesta["STOCK_PRO"]);
       $("#categoriaProductoEd").val(respuesta["CATEGORIA_PRO"]);
       $("#tallaProductoEd").val(respuesta["TALLA"]);
+      $("#desEd").val(respuesta["DESCRIPCION"]);
 
       $("#imagenUnoActual").val(respuesta["IMG_UNO"]);
       $("#imagenDosActual").val(respuesta["IMG_DOS"]);

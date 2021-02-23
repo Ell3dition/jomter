@@ -1,6 +1,6 @@
 <!--MODAL DESCRIPCION-->
 
-<div class="modal fade" id="descripcionProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="descripcionProducto" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
 
@@ -10,7 +10,7 @@
 
             <div class="modal-body">
 
-                <p>Con el foco solar de 20 Led con sensor de movimiento puede añadir un toque de seguridad a su hogar.
+                <p> Con el foco solar de 20 Led con sensor de movimiento puede añadir un toque de seguridad a su hogar.
                     Es perfecto para puertas de garaje escaleras patios y caminos. Características: Carga: luz solar.
                     Resistente al agua: IP65. Tamaño: 9.5 x 12.4 cm. Peso: 147g por unidad. Led: 20. Vatios: 65W.
                     Distancia de sensor: 3 metros. Ángulo de sensor: sector 120 . Material: plástico ABS +
@@ -33,7 +33,7 @@
 
 <!--MODAL AGREGAR-->
 
-<div class="modal fade" id="agregarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="agregarProducto" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
@@ -186,7 +186,7 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row justify-content-center">
-                            <div class="col-md-10 text-center">
+                        <div class="col-md-10 text-center">
                             <h4>Disculpe las molestias alctualmente no contamos con productos en esta categoría</h4>
                         </div>
                     </div>
@@ -202,3 +202,49 @@
 
 
 
+
+<!--MODAL CONFIRMAR DATOS-->
+
+<div class="modal fade" id="modalConfirmarDatos" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4><strong>Ingrese sus Datos</strong></h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 text-center">
+                            <div class="alert alert-primary" role="alert">
+                                Para mejorar nuestra atención y tener siempre la comunicación con ud por favor ingrese su nombre y número de contácto
+                            </div>
+                        </div>
+
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="nombreCliente">Nombre </label>
+                                <input type="text" class="form-control input-lg" id="nombreCliente">
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="telefonoCliente">Teléfono Contácto +56</label>
+                                <input type="text" class="form-control input-lg" id="telefonoCliente">
+                            </div>
+                        </div>
+
+                        <div class="col-md-10 mensaje">
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--Container-->
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="confirmar" >Confirmar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

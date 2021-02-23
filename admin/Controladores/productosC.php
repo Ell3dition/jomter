@@ -135,7 +135,7 @@ class ProductosC
 
             $tablaBD = "productos";
 
-            $datosC = array("imgUno" => $rutaImgUNO, "imgDos" => $rutaImgDOS, "imgTres" => $rutaImgTRES, "imgCuatro" => $rutaImgCUATRO, "nombre" => $_POST["nombreProductoN"], "precio" => $_POST["precioProductoN"], "stock" => $_POST["stockProductoN"], "categoria" => $_POST["categoriaProductoN"], "talla" => $_POST["tallaProductoN"]);
+            $datosC = array("imgUno" => $rutaImgUNO, "imgDos" => $rutaImgDOS, "imgTres" => $rutaImgTRES, "imgCuatro" => $rutaImgCUATRO, "nombre" => $_POST["nombreProductoN"], "precio" => $_POST["precioProductoN"], "stock" => $_POST["stockProductoN"], "categoria" => $_POST["categoriaProductoN"], "talla" => $_POST["tallaProductoN"] , "des" => $_POST["desN"]);
 
             $respuesta = ProductosM::CrearProductoM($tablaBD, $datosC);
 
@@ -394,7 +394,7 @@ class ProductosC
 
 
             $tablaBD = "productos";
-            $datosC = array("idPro" => $_POST["idProductoEd"], "imgUno" => $rutaImgUNO, "imgDos" => $rutaImgDOS, "imgTres" => $rutaImgTRES, "imgCuatro" => $rutaImgCUATRO, "nombre" => $_POST["nombreProductoEd"], "precio" => $_POST["precioProductoEd"], "stock" => $_POST["stockProductoEd"], "categoria" => $_POST["categoriaProductoEd"], "talla" => $_POST["tallaProductoEd"]);
+            $datosC = array("idPro" => $_POST["idProductoEd"], "imgUno" => $rutaImgUNO, "imgDos" => $rutaImgDOS, "imgTres" => $rutaImgTRES, "imgCuatro" => $rutaImgCUATRO, "nombre" => $_POST["nombreProductoEd"], "precio" => $_POST["precioProductoEd"], "stock" => $_POST["stockProductoEd"], "categoria" => $_POST["categoriaProductoEd"], "talla" => $_POST["tallaProductoEd"], "des" => $_POST["desEd"]);
             $respuesta = ProductosM::ActualizarProductoM($tablaBD, $datosC);
             if ($respuesta == true) {
                 echo '<script>

@@ -19,4 +19,6 @@ if (pagina[2] == "belleza") {
   valoraBuscar = "Juguetes";
 } else if (pagina[2] == "tecnologia") {
   valoraBuscar = "Tecnologia";
+} else if (pagina[2] == "VestuarioHogar") {
+  valoraBuscar = "Vestuario";
 }

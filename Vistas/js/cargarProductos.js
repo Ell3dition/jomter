@@ -19,6 +19,7 @@ function cargarProductos() {
 
       cargarVistaPreviadelCarrito(respuesta);
       respuesta.forEach((registro) => {
+       //TARJETAS DE PRODUCTOS
         let cuerpo = `<div class="col-md-3 col-9 mt-5">
           <div class="card card-blog">
               <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto">
@@ -28,7 +29,8 @@ function cargarProductos() {
               </div>
               <div class="table">
                   <h6 class="text-info">${registro.NOMBRE_PRO}</h6>
-                  <p><strong>Stock</strong> ${registro.STOCK_PRO}</p>
+                  <p class="my-0"><strong>Stock</strong> ${registro.STOCK_PRO}</p>
+                  <p class="my-0"><strong>Talla</strong> ${registro.TALLA}</p>
                   <h4>$ ${registro.PRECIO_PRO}</h4>
                   <div class="d-grid gap-2 d-md-block">
                       <button class="btn btn-success verDetalle" data-toggle="modal" idPro = "${registro.id}" data-target="#agregarProducto"> <i
@@ -45,12 +47,12 @@ function cargarProductos() {
   });
 }
 
-//BORRAR DEL PRODUCTO DEL CARRITO
+
 
 function cargarVistaPreviadelCarrito(respuesta) {
   $(".cuerpo").on("click", ".verDetalle", function () {
     Pid = $(this).attr("idPro");
-    console.log(Pid);
+    
     $(".CuerpoModal").empty();
     respuesta.forEach((productos) => {
       if (productos.id == Pid) {
@@ -60,8 +62,8 @@ function cargarVistaPreviadelCarrito(respuesta) {
 
     <div class="col-md-6">
         <h5 class="text-info" idProducto="${productos.id}">${productos.NOMBRE_PRO}</h5>
-        <p>Stock <strong> ${productos.STOCK_PRO} </strong></p>
-
+        <p class="my-0">Stock <strong> ${productos.STOCK_PRO} </strong></p>
+        <p class="mb-3 talla">Talla <strong> ${productos.TALLA} </strong></p>
         <h6>$ <span> ${productos.PRECIO_PRO} </span>c/u</h6>
         <div class="form-group">
             <label for="precioProductoN"><strong>Cantidad</strong> </label>
@@ -100,9 +102,6 @@ function agregaralCarro(e) {
   let cantidaStock = productoSeleccionado.querySelector("p strong").textContent;
   let cantidadAgregando = productoSeleccionado.querySelector(".cantidad").value;
 
-  console.log(cantidaStock);
-  console.log(cantidadAgregando);
-
   if (Number.parseInt(cantidaStock) < Number.parseInt(cantidadAgregando)) {
     alert("Stock insuficiente");
     return;
@@ -114,6 +113,7 @@ function agregaralCarro(e) {
     cantidad: productoSeleccionado.querySelector(".cantidad").value,
     subTotal: productoSeleccionado.querySelector(".totalProducto span")
       .textContent,
+    talla: productoSeleccionado.querySelector('.talla strong').textContent ,
     precioU: productoSeleccionado.querySelector("h6 span").textContent,
     id: productoSeleccionado.querySelector("h5").getAttribute("idProducto"),
   };
@@ -161,7 +161,7 @@ function agregaralcarrito() {
     </td>
     <td>${producto.nombre}</td>
     <td>${producto.cantidad}</td>
-    <td></td>
+    <td>${producto.talla}</td>
     <td>${producto.subTotal}</td>
     <td>
         <div class="btn-group">
@@ -173,6 +173,7 @@ function agregaralcarrito() {
     contenedorTbody.appendChild(row);
   });
 
+  sincronizarconStorage();
   calcularTotal();
   BorrarDelCarrito();
   
@@ -195,15 +196,22 @@ function calcularTotal() {
 function BorrarDelCarrito() {
   const btnBorrar = document.querySelector(".BorrarProductoCarrito");
 
-  btnBorrar.addEventListener("click", (e) => {
+  $('.contenedor').on('','.BorrarProductoCarrito', function(e){
+
     const productoId = e.target.getAttribute("idP");
 
     carritoCompras = carritoCompras.filter(
       (producto) => producto.id !== productoId
     );
-
     agregaralcarrito();
+    
+  })
+ 
+}
 
-    console.log(productoId);
-  });
+function sincronizarconStorage(){
+
+  localStorage.setItem('carrito', JSON.stringify(carritoCompras));
+
+
 }

@@ -68,7 +68,7 @@
             </div>
 
 
-            <div class="box-body">
+            <div class="box-body table-responsive">
 
                 <!--EL CUERPO DEL PROYECTO TABLAS Y COSAS RARAS--->
 
@@ -83,8 +83,9 @@
                             <th>Precio</th>
                             <th>Stock</th>
                             <th>Imágenes</th>
-                            <th>Categoria</th>
+                            <th>Categoría</th>
                             <th>Talla</th>
+                            <th>Descripción</th>
                             <th>Editar / Eliminar</th>
 
 
@@ -93,13 +94,8 @@
                     </thead>
 
                     <tbody>
-
                         <?php
-
-
-
                         $verP = ProductosC::VerProductosC($item);
-
                         foreach ($verP as $key => $value) {
 
                             echo '
@@ -124,9 +120,9 @@
 
     </td>
 
-
     <td>' . $value["CATEGORIA_PRO"] . '</td>
     <td>' . $value["TALLA"] . '</td>
+    <td>' . $value["DESCRIPCION"] . '</td>
     <td>
 
         <div class="btn-group">
@@ -160,8 +156,8 @@
 
 <?php
 
-    $borrar = new ProductosC();
-    $borrar -> BorrarProductosC();
+$borrar = new ProductosC();
+$borrar->BorrarProductosC();
 
 ?>
 
@@ -250,6 +246,13 @@
                                 <div class="form-group">
                                     <label for="tallaProductoN">Talla </label>
                                     <input type="text" class="form-control input-lg" name="tallaProductoN" id="tallaProductoN">
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                <label for="desN">Descripción </label>
+                                    <textarea name="desN" id="desN"  class="form-control input-lg" style=" min-width: 100%;min-height: 120px;max-height: 120px"></textarea>
                                 </div>
                             </div>
 
@@ -350,6 +353,13 @@
                                 <div class="form-group">
                                     <label for="tallaProductoEd">Talla </label>
                                     <input type="text" class="form-control input-lg" name="tallaProductoEd" id="tallaProductoEd">
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                <label for="desEd">Descripción </label>
+                                    <textarea name="desEd" id="desEd"  class="form-control input-lg" style=" min-width: 100%;min-height: 120px;max-height: 120px"></textarea>
                                 </div>
                             </div>
 

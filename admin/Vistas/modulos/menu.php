@@ -11,18 +11,20 @@
         if ($_SESSION["foto"] == "") {
 
 
-          echo '<img src="Vistas/img/defecto.png" class="brand-image img-circle elevation-3" style="opacity: .8">';
+          echo '<img src="Vistas/img/defecto.png"  class="brand-image img-circle elevation-3"
+          style="opacity: .8">';
         } else {
 
-          echo '<img src="' . $_SESSION["foto"] . '"  class="brand-image img-circle elevation-3" style="opacity: .8">';
+          echo '<img src="' . $_SESSION["foto"] . '"   class="brand-image img-circle elevation-3"
+          style="opacity: .8">';
         }
 
 
 
         ?>
 
-
-        <span class="font-weight-light"> Bienvenido <strong><?php echo  $_SESSION["usuario"] ?> </strong></span>
+        <span class="brand-text font-weight-light">Bienvenido <strong><?php echo  $_SESSION["usuario"] ?> </strong></span>
+   
       </a>
 
 
