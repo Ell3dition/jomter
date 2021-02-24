@@ -111,11 +111,10 @@ function ventaPendiente() {
       data: { accion: "Confirmar", listado: JSON.stringify(listado) , detalleProductos: JSON.stringify(carritoCompras)},
       dataType: "json",
       success: function (respuesta) {
-        console.log(respuesta);
+        enviodewhat();
         localStorage.removeItem("carrito");
         carritoCompras = [];
         agregaralcarrito();
-        enviodewhat();
         $("#modalConfirmarDatos").modal("hide");
       },
     });

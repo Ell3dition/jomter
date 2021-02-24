@@ -22,42 +22,55 @@
             <!--CONTACTOS-->
 
 
-            <div class="col-md-4 text-center mt-md-5 ">
+            <div class="col-md-4 text-center ">
+                <h5 class="text-uppercase my-3 pb-4"> <strong> Contácto </strong></h5>
 
-                <nav class="sociales text-center text-lg-center">
-                    <ul>
+                <div class="row justify-content-center">
 
-                        <li><a href="http://www.facebook.com" target="_blank"> <span class="sr-only"> </span></a></li>
-                        <li><a href="http://www.instagram.com" target="_blank"> <span class="sr-only"> </span></a></li>
-                        <li><a href="http://www.whatsapp.com" target="_blank"> <span class="sr-only"> </span></a></li>
+                    <div class="col-md-10">
+                        <nav class="sociales text-center text-lg-center">
+                            <ul>
 
-                    </ul>
-                </nav>
+                                <li><a href="http://www.facebook.com" target="_blank"> <span class="sr-only"> </span></a></li>
+                                <li><a href="http://www.instagram.com" target="_blank"> <span class="sr-only"> </span></a></li>
+                                <li><a href="http://www.whatsapp.com" target="_blank"> <span class="sr-only"> </span></a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="col-md-10 mt-4 ml-2 ">
+                         <div class="contenido">
+                        <p class="telefono ">
+                            <strong class="align-top">+56 9 57097639</strong>
+                        </p>
+
+                    </div>
+                                    
+                    </div>
+
+                    <div class="col-md-10 mt-4 ml-2 ">
+                         <div class="contenido">
+                        <p class="telefono ">
+                            <strong class="align-top">ventas@jomter.cl</strong>
+                        </p>
+
+                    </div>
+                                    
+                    </div>
+
+                </div>
+
 
             </div>
-
-
         </div>
-
-
         <!--Col-md-4-->
-
         <hr class="w-100">
         <p class="text-center w-100 copyright">Todo los derechos reservados Tienda Jomter 2021 || Desarrollado por <a href="https://www.sertimac.cl">SERTIMAC</a></p>
-
-
     </div>
     <!--Row-->
-
     </div>
-
-
 </footer>
-
-
-
-
-
 
 
 <script src="admin/Vistas/plugins/jquery/jquery.min.js"></script>
@@ -74,10 +87,7 @@
 
 
 <script src="Vistas/js/carrito.js"></script>
-
 <script src="Vistas/js/cargarProductos.js"></script>
-
-
 <script src="Vistas/js/envio.js"></script>
 
 </html>

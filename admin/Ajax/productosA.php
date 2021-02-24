@@ -25,6 +25,13 @@ class ProductosA
         $respuesta = ProductosC::VerProductosFrontEndC($valor);
         echo json_encode($respuesta);
     }
+
+    public function BusquedaDesdeFrontEnd(){
+
+        $item = null;
+        $respuesta = ProductosC::VerProductosC($item);
+        echo json_encode($respuesta);
+    }
 }
 
 
@@ -35,4 +42,8 @@ if ($_POST["accion"] == "productos") {
 
     $cargar = new ProductosA();
     $cargar->CargarDesdeFrontEnd();
+} else if ($_POST["accion"] == "BusquedaFrontEnd") {
+
+    $cargar = new ProductosA();
+    $cargar->BusquedaDesdeFrontEnd();
 }

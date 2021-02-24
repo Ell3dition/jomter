@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="Vistas/css/productos.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+       
 
 </head>
 
@@ -26,9 +27,9 @@
 
                 <div class="col-md-7 my-3 justify-content-center" >
                     <form class="form-inline my-2 my-lg-0 p-2">
-                        <input class="form-control" style="width: 85%;" type="search" placeholder="Buscar"
+                        <input class="form-control" id="inputBusqueda" style="width: 85%;" type="search" placeholder="Buscar"
                             aria-label="Search">
-                        <button class="btn btn-outline-secundary my-2 my-sm-0" type="submit">Buscar</button>
+                        <button class="btn btn-outline-secundary my-2 my-sm-0" id="btnBuscar" type="button">Buscar</button>
                     </form>
                 </div>
 
@@ -86,7 +87,7 @@
                         <a class="nav-link" href="belleza"><strong class="color">Belleza</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="VestuarioHogar"><strong class="color">Vesturio y Hogar</strong></a>
+                        <a class="nav-link" href="VestuarioHogar"><strong class="color">Vestuario y Hogar</strong></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tecnologia"><strong class="color">Tecnología</strong></a>

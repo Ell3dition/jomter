@@ -630,3 +630,22 @@ SOCIAL MEDIA BUTTONS
 .nav-link:hover {
     background-color: white;
 }
+
+.telefono::before {
+    content: "";
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    background-image: url(../mg/icono_telefono.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: 1rem;
+  }
+  
+  .contenido p{
+  
+  color:rgb(216, 216, 216);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  
+  }

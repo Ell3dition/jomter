@@ -1,21 +1,24 @@
 <!--MODAL DESCRIPCION-->
 
 <div class="modal fade" id="descripcionProducto" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
             <div class="modal-header">
                 <h4><strong>Descripción</strong></h4>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body ">
 
-                <p> Con el foco solar de 20 Led con sensor de movimiento puede añadir un toque de seguridad a su hogar.
-                    Es perfecto para puertas de garaje escaleras patios y caminos. Características: Carga: luz solar.
-                    Resistente al agua: IP65. Tamaño: 9.5 x 12.4 cm. Peso: 147g por unidad. Led: 20. Vatios: 65W.
-                    Distancia de sensor: 3 metros. Ángulo de sensor: sector 120 . Material: plástico ABS +
-                    policarbonato. Tiempo de carga: aproximadamente 8 horas.</p>
+                <div class="container">
+                    <div class="row contenedorDescripcion">
 
+                     
+
+                    </div>
+                </div>
+
+                
 
             </div>
             <div class="modal-footer">
@@ -242,7 +245,7 @@
                 <!--Container-->
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-success" id="confirmar" >Confirmar</button>
+                <button type="button" class="btn btn-success" id="confirmar">Confirmar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
             </div>
         </div>

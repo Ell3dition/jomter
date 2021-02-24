@@ -3,6 +3,10 @@ let carritoCompras = [];
 document.addEventListener("DOMContentLoaded", () => {
   carritoCompras = JSON.parse(localStorage.getItem("carrito")) || [];
   agregaralcarrito();
+
+  cargarProductos();
+  sumarRestarbtn();
+  BusquedaProductos();
 });
 
 var pathname = window.location.pathname;
