@@ -3,21 +3,25 @@ include "cabeceras.php";
 ?>
 
 
-<div class="container">
+<body class="fondo">
 
-    <div class="row justify-content-center cuerpo">
+    <div class="container">
 
+        <div class="row justify-content-center cuerpo">
+
+
+
+
+
+        </div>
+        <!--ROW-->
 
 
 
 
     </div>
-    <!--ROW-->
 
-
-
-
-</div>
+</body>
 
 <?php
 

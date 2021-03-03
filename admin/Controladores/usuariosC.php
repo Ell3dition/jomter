@@ -12,10 +12,7 @@ class UsuariosC
         if (isset($_POST["usuario-Ing"])) {
 
 
-            if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["usuario-Ing"]) && (preg_match('/^[a-zA-Z0-9]+$/', $_POST["clave-Ing"]))) {
-
-
-                $datosC = array("usuario" => $_POST["usuario-Ing"], "pass" => $_POST["clave-Ing"]);
+                            $datosC = array("usuario" => $_POST["usuario-Ing"], "pass" => $_POST["clave-Ing"]);
 
                 $tablaBD = "usuarios";
 
@@ -41,7 +38,7 @@ class UsuariosC
 
                         window.location = "inicio";
                        
-                        window.alert("Estoy aqui pero sin session ' . $nombre . ' id es :' . $id . '");
+                       
 
                         </script>';
                 } else {
@@ -54,7 +51,7 @@ class UsuariosC
 
                         </script>';
                 }
-            }
+          
         }
     }
 

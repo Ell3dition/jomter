@@ -112,5 +112,55 @@ class VentasM extends conexionBD
         $pdo->execute();
         return $pdo->fetchAll();
         $pdo = null;
+ 
     }
+
+
+    static function VerDetalleVentasM($idVenta)
+    {
+
+
+        $pdo = conexionBD::cBD()->prepare("SELECT * FROM detalle_ventas INNER JOIN productos ON productos.id = detalle_ventas.ID_PRODUCTO_FK WHERE ID_NUM_VENTA = :id");
+
+        $pdo->bindParam(":id", $idVenta, PDO::PARAM_STR);
+        $pdo->execute();
+        return $pdo->fetchAll();
+        $pdo = null;
+ 
+    }
+    
+
+    static function actualizarStockM($lista)
+    {
+        $exitosos = 0;
+        foreach ($lista as $productos) {
+            $pdo = conexionBD::cBD()->prepare("UPDATE productos SET STOCK_PRO = :total WHERE id = :id");
+
+            $pdo->bindParam(":total", $productos["total"], PDO::PARAM_INT);
+            $pdo->bindParam(":id", $productos["id"], PDO::PARAM_INT);
+           
+            $pdo->execute();
+            if (($pdo->rowCount()) > 0) {
+                $exitosos++;
+            }
+        }
+        if ($exitosos > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        $pdo = null;
+ 
+    }
+
+
+
+
+
+
+
+
+
+
+    
 }

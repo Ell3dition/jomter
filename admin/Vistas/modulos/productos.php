@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            MANTENEDOR PRODUCTOS
+             PRODUCTOS ACTIVOS
         </h1>
 
     </section>
@@ -86,7 +86,7 @@
                             <th>Categoría</th>
                             <th>Talla</th>
                             <th>Descripción</th>
-                            <th>Editar / Eliminar</th>
+                            <th>Editar / Desactivar</th>
 
 
                         </tr>
@@ -128,8 +128,7 @@
         <div class="btn-group">
 
             <button class="btn btn-success EditarProducto" pId= "' . $value["id"] . '"  data-toggle="modal" data-target="#editarProducto"><i class="fa fa-pencil-alt"></i></button>
-            <button class="btn btn-danger BorrarProducto" imgUno = "' . $value["IMG_UNO"] . '" 
-            imgDos = "' . $value["IMG_DOS"] . '" imgTres = "' . $value["IMG_TRES"] . '" imgCuatro = "' . $value["IMG_CUATRO"] . '" pId= "' . $value["id"] . '"><i class="fa fa-times"></i></button>
+            <button class="btn btn-warning BorrarProducto"  pId= "' . $value["id"] . '"><i class="fa fa-times"></i></button>
 
         </div>
     </td>
@@ -413,6 +412,37 @@ $borrar->BorrarProductosC();
                 ?>
 
             </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modalConfirmarpro" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content confirmacion">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+            </div>
+            <div class="modal-body">
+
+                <div class="container">
+
+                    <div class="row justify-content-center">
+
+  <p><strong>¿Desea desactivar el producto?</strong> </p>
+        
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+            <button class="btn btn-warning btnDesactivar">Desactivar</button>
+            <button class="btn btn-danger" data-dismiss="modal"> Cancelar</button>
+
+            </div>
         </div>
     </div>
 </div>

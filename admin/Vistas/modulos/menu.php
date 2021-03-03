@@ -1,3 +1,27 @@
+  
+  
+   <?php
+
+if($_SESSION["rol"] == "Vendedor"){
+
+  $estado="style='display: none;'";
+
+
+}else
+{
+
+  $estado="";
+
+
+}
+
+
+
+?>
+  
+  
+  
+  
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
 
@@ -46,22 +70,43 @@
             </a>
           </li>
 
-
-          <li class="nav-item">
-            <a href="productos" class="nav-link">
-              <i class="nav-icon fas fa-shopping-bag"></i>
-              <p>Productos</p>
+                
+          <li class="nav-item has-treeview" <?php echo  $estado ?>>
+            <a href="#" class="nav-link">
+              <i class="fas fa-shopping-bag nav-icon"></i>
+              <p>
+                Productos
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="productos" class="nav-link">
+                  <i class="fas fa-window-minimize nav-icon"></i>
+                  <p>Productos Activos</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="desactivados" class="nav-link">
+                  <i class="fas fa-window-minimize nav-icon"></i>
+                  <p>Productos Desactivados</p>
+                </a>
+              </li>
+
+            
+            
+            </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" <?php echo  $estado ?>>
             <a href="nosotros" class="nav-link">
               <i class="nav-icon fa fa-university"></i>
               <p>Nosotros</p>
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" <?php echo  $estado ?>>
             <a href="usuarios" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>Usuarios</p>

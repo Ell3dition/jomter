@@ -13,8 +13,6 @@
                 <div class="container">
                     <div class="row contenedorDescripcion">
 
-                     
-
                     </div>
                 </div>
 

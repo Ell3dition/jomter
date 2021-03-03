@@ -36,4 +36,17 @@ class PrincipalC
         include "Vistas/modulos/VestuarioHogar.php";
 
     }
+
+    public function LlamarNosotros(){
+
+        include "Vistas/modulos/nosotros.php";
+
+    }
+
+    public function LlamarContacto(){
+
+        include "Vistas/modulos/contacto.php";
+
+    }
+
 }

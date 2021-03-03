@@ -1,4 +1,10 @@
 function cargarProductos() {
+
+if(valoraBuscar == ""){
+
+  return;
+}
+
   $.ajax({
     url: "Admin/Ajax/productosA.php",
     type: "POST",
@@ -6,7 +12,11 @@ function cargarProductos() {
     dataType: "json",
     success: function (respuesta) {
       if (respuesta.length == 0) {
-        $("#modalSinProductos").modal("show");
+        swal(
+          "Lo sentimos",
+          "Actualmente no contamos con productos en esta categoría le invitamos a que pueda navegar por las otras catgorías",
+          "error"
+        );
 
         return;
       }
@@ -83,6 +93,7 @@ function cargarVistaPreviadelCarrito(respuesta) {
         <p class="my-0">Stock <strong class="stock"> ${productos.STOCK_PRO} </strong></p>
         <p class="mb-3 talla">Talla <strong> ${productos.TALLA} </strong></p>
         <h6>$ <span> ${productos.PRECIO_PRO} </span>c/u</h6>
+       <!-- <h6>$ <span> 1000 por mayor 6 </span>c/u</h6> -->
         <div class="input-group mb-3">
 
 </div>
@@ -113,6 +124,8 @@ function cargarVistaPreviadelCarrito(respuesta) {
     });
   });
 
+
+
   const btnAgregarCarro = document.querySelector(".agregar");
   btnAgregarCarro.addEventListener("click", agregaralCarro);
 }
@@ -124,7 +137,7 @@ function crearTarjetasProductos(respuesta) {
       <div class="card card-blog">
           <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto" idPro = "${registro.id}">
             <img  src="admin/${registro.IMG_UNO}"  class="img imagen-tarjeta" >
-                  <!--   <div class="card-caption"> Quisque a bibendum magna </div> -->
+                 
               
           </div>
           <div class="table">
@@ -145,15 +158,24 @@ function crearTarjetasProductos(respuesta) {
   });
 }
 
+
+//VARIABLES GLOBALES PARA PODER VERIFICAR STOCK EN LINEA 376
+let idProductoSeleccionado="";
+let cantidaStock = "";
+let cantidadAgregando = "";
+
 function agregaralCarro(e) {
+
+ 
+
   $("#agregarProducto").modal("hide");
   const productoSeleccionado = e.target.parentElement.parentElement;
 
-  let cantidaStock = productoSeleccionado.querySelector("p strong").textContent;
-  let cantidadAgregando = productoSeleccionado.querySelector(".cantidad").value;
+  cantidaStock = productoSeleccionado.querySelector("p strong").textContent;
+  cantidadAgregando = productoSeleccionado.querySelector(".cantidad").value;
 
   if (Number.parseInt(cantidaStock) < Number.parseInt(cantidadAgregando)) {
-    alert("Stock insuficiente");
+    swal("Lo sentimos", "Stock Insuficiente", "error");
     return;
   }
 
@@ -167,6 +189,25 @@ function agregaralCarro(e) {
     precioU: productoSeleccionado.querySelector("h6 span").textContent,
     id: productoSeleccionado.querySelector("h5").getAttribute("idProducto"),
   };
+
+  idProductoSeleccionado = productoSeleccionado.querySelector("h5").getAttribute("idProducto");
+
+
+
+  let resultado = validarStockalAgregar();
+
+  if(resultado == false){
+
+    
+    swal(
+      "Error",
+      "La cantidad que intenta agregar supera el limite de stock del producto, revise su carrito para verificar la cantidad de los productos",
+      "error"
+    );
+
+
+    return;
+  }
 
   const existentes = carritoCompras.some(
     (producto) => producto.id === Productos.id
@@ -194,7 +235,17 @@ function agregaralCarro(e) {
     carritoCompras = [...carritoCompras, Productos];
   }
 
-  agregaralcarrito();
+
+ 
+
+   agregaralcarrito();
+   toastr.success("Aregado con éxito", "Producto", {
+    closeButton: true,
+    progressBar: true,
+    showDuration: "800",
+    hideDuration: "1000",
+  });
+ 
 }
 
 function agregaralcarrito() {
@@ -242,9 +293,7 @@ function calcularTotal() {
 }
 
 function BorrarDelCarrito() {
-  const btnBorrar = document.querySelector(".BorrarProductoCarrito");
-
-  $(".contenedor").on("", ".BorrarProductoCarrito", function (e) {
+  $(".contenedor").on("click", ".BorrarProductoCarrito", function (e) {
     const productoId = e.target.getAttribute("idP");
 
     carritoCompras = carritoCompras.filter(
@@ -294,7 +343,7 @@ function BusquedaProductos() {
     data: { accion: "BusquedaFrontEnd" },
     dataType: "json",
     success: function (respuesta) {
-          cargarBusqueda(respuesta);
+      cargarBusqueda(respuesta);
     },
   });
 }
@@ -317,14 +366,60 @@ function cargarBusqueda(respuesta) {
           IMG_CUATRO: element.IMG_CUATRO,
           IMG_TRES: element.IMG_TRES,
           IMG_DOS: element.IMG_DOS,
-          IMG_UNO: element.IMG_UNO
+          IMG_UNO: element.IMG_UNO,
         };
         resltadoBusqueda.push(pro);
       }
     });
-    $('.cuerpo').empty();
+    $(".cuerpo").empty();
     cargarDescripcionProducto(resltadoBusqueda);
     cargarVistaPreviadelCarrito(resltadoBusqueda);
-    crearTarjetasProductos(resltadoBusqueda)
-     });
+    crearTarjetasProductos(resltadoBusqueda);
+  });
 }
+
+
+function validarStockalAgregar(){
+  if(carritoCompras.length == 0){
+
+    return true
+  }
+
+ let encontrados = 0;
+  
+  for (let i = 0; i < carritoCompras.length; i++) {
+
+    if(carritoCompras[i].id == idProductoSeleccionado ){
+      
+      let total = Number.parseInt(cantidadAgregando)+ Number.parseInt(carritoCompras[i].cantidad);
+
+      encontrados++;
+      
+      if(Number.parseInt(cantidaStock) <  total ){
+
+      
+      return false;
+       
+
+      }else{
+
+        return true;
+      }
+
+
+    }
+    
+  }
+
+  if(encontrados == 0){
+
+    return true
+  }
+  
+ 
+ 
+}
+
+
+
+  

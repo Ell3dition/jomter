@@ -135,7 +135,7 @@ class ProductosC
 
             $tablaBD = "productos";
 
-            $datosC = array("imgUno" => $rutaImgUNO, "imgDos" => $rutaImgDOS, "imgTres" => $rutaImgTRES, "imgCuatro" => $rutaImgCUATRO, "nombre" => $_POST["nombreProductoN"], "precio" => $_POST["precioProductoN"], "stock" => $_POST["stockProductoN"], "categoria" => $_POST["categoriaProductoN"], "talla" => $_POST["tallaProductoN"] , "des" => $_POST["desN"]);
+            $datosC = array("imgUno" => $rutaImgUNO, "imgDos" => $rutaImgDOS, "imgTres" => $rutaImgTRES, "imgCuatro" => $rutaImgCUATRO, "nombre" => $_POST["nombreProductoN"], "precio" => $_POST["precioProductoN"], "stock" => $_POST["stockProductoN"], "categoria" => $_POST["categoriaProductoN"], "talla" => $_POST["tallaProductoN"], "des" => $_POST["desN"]);
 
             $respuesta = ProductosM::CrearProductoM($tablaBD, $datosC);
 
@@ -168,19 +168,22 @@ class ProductosC
 
         if (!empty($_POST["selectCategproaBUscar"])) {
 
+            //BUSCAR
             $item = $_POST["selectCategproaBUscar"];
             $tablaBD = "productos";
             $valor = "Busqueda";
             $respuesta = ProductosM::VerProductoM($tablaBD, $item, $valor);
-        } elseif ($item != null) {
+        } else if ($item != null) {
 
-            $valor = null;
+            //SETEAR
+            $valor = NULL;
             $tablaBD = "productos";
             $respuesta = ProductosM::VerProductoM($tablaBD, $item, $valor);
+
         } else {
 
             $item = null;
-            $valor = null;
+            $valor = "ACTIVADO";
             $tablaBD = "productos";
             $respuesta = ProductosM::VerProductoM($tablaBD, $item, $valor);
         }
@@ -188,6 +191,36 @@ class ProductosC
         return $respuesta;
     } //FIN VER PROPIEDAD
 
+
+        //VER PROPIEDAD
+        static public function VerProductosDESC($item)
+        {
+    
+            if (!empty($_POST["selectCategproaBUscar"])) {
+    
+                //BUSCAR
+                $item = $_POST["selectCategproaBUscar"];
+                $tipo = "Busqueda";
+                $valor = "DESACTIVADO";
+                $respuesta = ProductosM::VerProductoM($tipo, $item, $valor);
+            } else if ($item != null) {
+    
+                //SETEAR
+                $valor = NULL;
+                $tablaBD = "productos";
+                $respuesta = ProductosM::VerProductoM($tablaBD, $item, $valor);
+    
+            } else {
+    
+                $item = null;
+                $valor = "DESACTIVADO";
+                $tablaBD = "productos";
+                $respuesta = ProductosM::VerProductoM($tablaBD, $item, $valor);
+            }
+    
+            return $respuesta;
+        } //FIN VER PROPIEDAD
+    
 
 
 
@@ -197,20 +230,26 @@ class ProductosC
     static public function BorrarProductosC()
     {
 
-        if(isset($_GET["Pid"])){
+        if (isset($_GET["Pid"])) {
 
             $tablaBD = "productos";
             $id = $_GET["Pid"];
 
 
-            if($_GET["Pid"] != ""){
-
-
+            if ($_GET["imgUno"] != "") {
                 unlink($_GET["imgUno"]);
-                unlink($_GET["imgDos"]);
-                unlink($_GET["imgTres"]);
-                unlink($_GET["imgCuatro"]);
+            }
 
+            if ($_GET["imgDos"] != "") {
+                unlink($_GET["imgDos"]);
+            }
+
+            if ($_GET["imgTres"] != "") {
+                unlink($_GET["imgTres"]);
+            }
+
+            if ($_GET["imgCuatro"] != "") {
+                unlink($_GET["imgCuatro"]);
             }
 
 
@@ -218,7 +257,7 @@ class ProductosC
 
 
 
-            if($respuesta == true){
+            if ($respuesta == true) {
 
 
                 echo '<script>
@@ -226,9 +265,7 @@ class ProductosC
                     window.location = "productos";
                 
                 </script>';
-
-
-            }else{
+            } else {
 
 
                 echo '<script>
@@ -237,15 +274,8 @@ class ProductosC
                     
 
             </script>';
-
             }
-
         }
-
-
-
-
-        
     }
 
 
@@ -414,16 +444,12 @@ class ProductosC
     }
 
 
-    static public function VerProductosFrontEndC($items){
+    static public function VerProductosFrontEndC($items)
+    {
 
 
         $respuesta = ProductosM::VerProductosFrontEndM($items);
 
         return $respuesta;
-
-
     }
-
-
-
 }  //FIN CLASE

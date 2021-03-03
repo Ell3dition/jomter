@@ -40,6 +40,7 @@ session_start();
 
   <link href="Vistas/css/estilosLogin.css" rel="stylesheet">
   <link href="Vistas/css/spinner.css" rel="stylesheet">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -69,7 +70,7 @@ session_start();
 
       if (
         $_GET["url"] == "inicio" || $_GET["url"] == "salir" || $_GET["url"] == "productos" || $_GET["url"] == "nosotros"
-        || $_GET["url"] == "usuarios"
+        || $_GET["url"] == "usuarios" || $_GET["url"] == "desactivados"
       ) {
 
 
@@ -131,9 +132,19 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   <script src="Vistas/js/cargarImagens.js"></script>
-  <script src="Vistas/js/nosotros.js"></script>
+ <script src="Vistas/js/nosotros.js"></script> 
   <script src="Vistas/js/usuarios.js"></script>
-  <script src="Vistas/js/ventas.js"></script>
+<script src="Vistas/js/ventas.js"></script>
+
+  <!-- Include the Quill library -->
+ <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+</script>
 
 
 

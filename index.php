@@ -40,6 +40,16 @@ if($_GET["url"]== "belleza"){
     $plantilla = new PrincipalC();
     $plantilla -> LlamarVestuarioHogar();
 
+}else if ($_GET["url"] == "nosotros"){
+
+    $plantilla = new PrincipalC();
+    $plantilla -> LlamarNosotros();
+
+}else if ($_GET["url"] == "contacto"){
+
+    $plantilla = new PrincipalC();
+    $plantilla -> LlamarContacto();
+
 }else{
     $plantilla = new PrincipalC();
     $plantilla -> LlamarPrincipalC();

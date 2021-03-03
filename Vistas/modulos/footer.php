@@ -27,37 +27,40 @@
 
                 <div class="row justify-content-center">
 
+
+
+                    <div class="col-md-10 mt-2 ml-2 ">
+                        <div class="contenido">
+                            <p>
+                                <strong class="align-top">+56 9 52878233</strong>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-10 mt-1 ml-2 ">
+                        <div class="contenido">
+                            <p>
+                                <strong class="align-top">ventas@jomter.cl</strong>
+                            </p>
+
+                        </div>
+
+                    </div>
+
                     <div class="col-md-10">
                         <nav class="sociales text-center text-lg-center">
                             <ul>
 
-                                <li><a href="http://www.facebook.com" target="_blank"> <span class="sr-only"> </span></a></li>
-                                <li><a href="http://www.instagram.com" target="_blank"> <span class="sr-only"> </span></a></li>
-                                <li><a href="http://www.whatsapp.com" target="_blank"> <span class="sr-only"> </span></a></li>
+                                <li><a href="https://www.facebook.com/tecnojomter" target="_blank"> <span class="sr-only"> </span></a></li>
+                                <li><a href="https://www.instagram.com/tecno.jomter1?igshid=1axff0q26fx6l" target="_blank"> <span class="sr-only"> </span></a></li>
+                                <li><a href="https://api.whatsapp.com/send?phone=56952878233&text=Hola%20quiero%20contactarme%20con%20ustedes" target="_blank"> <span class="sr-only"> </span></a></li>
 
                             </ul>
                         </nav>
                     </div>
 
-                    <div class="col-md-10 mt-4 ml-2 ">
-                         <div class="contenido">
-                        <p class="telefono ">
-                            <strong class="align-top">+56 9 57097639</strong>
-                        </p>
-
-                    </div>
-                                    
-                    </div>
-
-                    <div class="col-md-10 mt-4 ml-2 ">
-                         <div class="contenido">
-                        <p class="telefono ">
-                            <strong class="align-top">ventas@jomter.cl</strong>
-                        </p>
-
-                    </div>
-                                    
-                    </div>
 
                 </div>
 
@@ -79,15 +82,32 @@
 <script src="admin/Vistas/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 
 
-
+<!--LIBRERIAS ADICIONALES -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://kit.fontawesome.com/f6488b3598.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<!--JS NECESARIOS DEL SISTEMA -->
+
+<script src="Vistas/js/cargarProductos.js"></script>
+<script src="Vistas/js/carrito.js"></script>
+<script src="Vistas/js/envio.js"></script>
+<script src="Vistas/js/nosotros.js"></script>
+
+
+
+
+
+
+
+
+
 </body>
 
 
-<script src="Vistas/js/carrito.js"></script>
-<script src="Vistas/js/cargarProductos.js"></script>
-<script src="Vistas/js/envio.js"></script>
+
 
 </html>

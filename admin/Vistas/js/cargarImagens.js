@@ -49,28 +49,55 @@ $("#tablaRegistros").on("click", ".EditarProducto", function () {
   });
 });
 
-
-
 //Borrar Producto
 
-$("#tablaRegistros").on("click", ".BorrarProducto", function(){
-
-  var res = confirm("Desea borrar el Registro?");
-
-  if(res== true){
-    var idProducto = $(this).attr("pId");
-    var imgUno = $(this).attr("imgUno");
-    var imgDos = $(this).attr("imgDos");
-    var imgTres = $(this).attr("imgTres");
-    var imgCuatro = $(this).attr("imgCuatro");
-
-    window.location = "index.php?url=productos&Pid="+idProducto+"&imgUno="+imgUno+"&imgDos="+imgDos+"&imgTres="+imgTres+"&imgCuatro="+imgCuatro;
-
-  }
- 
-
-
- 
-
+let idP="";
+$("#tablaRegistros").on("click", ".BorrarProducto", function () {
+  $("#modalConfirmarpro").modal("show");
+  idP =  $(this).attr("pId");
 });
 
+$(".confirmacion").on("click", ".btnDesactivar", desactivarProductos);
+function desactivarProductos(){
+  $.ajax({
+    url:"Ajax/productosA.php",
+    type: "POST",
+    data:{accion: "desactivar", id: idP},
+    dataType:"json",
+    success: function(respuesta){
+
+      $("#modalConfirmarpro").modal("hide");
+      window.location.href = "productos";
+      alert('Producto desactivado con éxito');
+     
+    }
+
+  });
+
+}
+
+//ACTIVAR PRODUCTO
+
+$("#tablaRegistros").on("click", ".ActivarProducto", function () {
+  $("#modalActivarpro").modal("show");
+  idP =  $(this).attr("pId");
+});
+
+$(".confirmacion").on("click", ".btnActivar", activarProductos);
+function activarProductos(){
+  $.ajax({
+    url:"Ajax/productosA.php",
+    type: "POST",
+    data:{accion: "activar", id: idP},
+    dataType:"json",
+    success: function(respuesta){
+
+      $("#modalActivarpro").modal("hide");
+      window.location.href = "desactivados";
+      alert('Producto activado con éxito');
+     
+    }
+
+  });
+
+}

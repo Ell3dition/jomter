@@ -37,6 +37,22 @@ class VentasA
         $respuesta = VentasM::BuscarVentaM($parametro);
         echo json_encode($respuesta);
     }
+
+    public function VerDetalleVentasA(){
+
+        $id = $_POST["idVentas"];
+
+        $respuesta = VentasM::VerDetalleVentasM($id);
+        echo json_encode($respuesta);
+    }
+
+    public function actualizarStock(){
+
+        $lista = json_decode($_POST["lista"], true);
+
+        $respuesta = VentasM::actualizarStockM($lista);
+        echo json_encode($respuesta);
+    }
 }
 
 
@@ -65,6 +81,16 @@ if ($_POST["accion"] == "Confirmar") {
   
     $cargar = new VentasA();
     $cargar -> BuscarVentasA();
+
+}else if ($_POST["accion"] == "detalleVentas"){
+ 
+    $cargar = new VentasA();
+    $cargar -> VerDetalleVentasA();
+
+}else if ($_POST["accion"] == "ActualizarStock"){
+ 
+    $cargar = new VentasA();
+    $cargar -> actualizarStock();
 
 }
 

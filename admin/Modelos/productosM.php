@@ -13,8 +13,8 @@ class ProductosM extends conexionBD
 
 
 
-        $pdo = conexionBD::cBD()->prepare("INSERT INTO $tablaBD (IMG_UNO, IMG_DOS, IMG_TRES, IMG_CUATRO, NOMBRE_PRO, PRECIO_PRO, STOCK_PRO, CATEGORIA_PRO, TALLA, DESCRIPCION) values 
-        (:imgUno, :imgDos, :imgTres, :imgCuatro, :nombre, :precio, :stock, :categoria, :talla, :des)");
+        $pdo = conexionBD::cBD()->prepare("INSERT INTO $tablaBD (IMG_UNO, IMG_DOS, IMG_TRES, IMG_CUATRO, NOMBRE_PRO, PRECIO_PRO, STOCK_PRO, CATEGORIA_PRO, TALLA, DESCRIPCION, ESTADO) values 
+        (:imgUno, :imgDos, :imgTres, :imgCuatro, :nombre, :precio, :stock, :categoria, :talla, :des, 'ACTIVADO')");
 
         $pdo->bindParam(":imgUno", $datosC["imgUno"], PDO::PARAM_STR);
         $pdo->bindParam(":imgDos", $datosC["imgDos"], PDO::PARAM_STR);
@@ -42,20 +42,19 @@ class ProductosM extends conexionBD
 
 
     //VER PROPIEDAD
-    static public function VerProductoM($tablaBD, $item, $valor)
+    static public function VerProductoM($tipo, $item, $valor)
     {
 
         if ($item != null && $valor == null) {
-            $pdo = conexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE id = $item");
+            $pdo = conexionBD::cBD()->prepare("SELECT * FROM productos WHERE id = $item");
             $pdo->execute();
             return $pdo->fetch();
-        } elseif ($item != null && $valor == "Busqueda") {
-
-            $pdo = conexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE CATEGORIA_PRO = '$item'");
+        } else if ($item != null && $tipo == "Busqueda") {
+            $pdo = conexionBD::cBD()->prepare("SELECT * FROM productos WHERE CATEGORIA_PRO = '$item' AND ESTADO = '$valor'");
             $pdo->execute();
             return $pdo->fetchAll();
         } else {
-            $pdo = conexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
+            $pdo = conexionBD::cBD()->prepare("SELECT * FROM productos WHERE ESTADO = '$valor'");
             $pdo->execute();
             return $pdo->fetchAll();
         }
@@ -73,15 +72,12 @@ class ProductosM extends conexionBD
 
         $pdo = conexionBD::cBD()->prepare("DELETE FROM $tablaBD WHERE id = :id");
 
-        $pdo->bindParam(":id", $idPro, PDO::PARAM_STR);
+        $pdo->bindParam(":id", $idPro, PDO::PARAM_INT);
 
 
         if ($pdo->execute()) {
-
-
             return true;
         } else {
-
             return false;
         }
 
@@ -128,11 +124,54 @@ class ProductosM extends conexionBD
 
 
 
- static public function VerProductosFrontEndM($items)
+    static public function VerProductosFrontEndM($items)
     {
-        $pdo = conexionBD::cBD()->prepare("SELECT * FROM productos WHERE CATEGORIA_PRO = '$items'");
+        $pdo = conexionBD::cBD()->prepare("SELECT * FROM productos WHERE CATEGORIA_PRO = '$items' AND ESTADO = 'ACTIVADO'");
         $pdo->execute();
         return $pdo->fetchAll();
+        $pdo = null;
+    }
+
+
+
+    static public function DesactivarM($id)
+    {
+        $pdo = conexionBD::cBD()->prepare("UPDATE productos SET ESTADO = 'DESACTIVADO' WHERE id = :idPro");
+        $pdo->bindParam(":idPro", $id, PDO::PARAM_STR);
+
+
+        if ($pdo->execute()) {
+
+
+            return true;
+        } else {
+
+
+            return false;
+        }
+
+        $pdo = null;
+    }
+
+
+    static public function activarM($id)
+    {
+
+        $pdo = conexionBD::cBD()->prepare("UPDATE productos SET ESTADO = 'ACTIVADO' WHERE id = :idPro");
+
+        $pdo->bindParam(":idPro", $id, PDO::PARAM_STR);
+       
+
+        if ($pdo->execute()) {
+
+
+            return true;
+        } else {
+
+
+            return false;
+        }
+
         $pdo = null;
     }
 }//FIN CLASE

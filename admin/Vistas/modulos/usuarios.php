@@ -239,8 +239,8 @@ $borrar->BorrarUsuariosC();
                                     <label for="imgUsuarioEd">Foto </label>
                                     <input type="file" class="form-control input-lg" name="imgUsuarioEd" id="imgUsuarioEd">
                                     <img src="" class="img-fluid visor" alt="" width="150px">
-                                    <input type="text" name="idUsuarioEd" id="idUsarioEd">
-                                    <input type="text" name="imgActualEd" id="imgActualEd">
+                                    <input type="hidden" name="idUsuarioEd" id="idUsarioEd">
+                                    <input type="hidden" name="imgActualEd" id="imgActualEd">
                                 </div>
 
                             </div>

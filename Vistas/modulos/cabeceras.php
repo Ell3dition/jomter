@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Vistas/css/productos.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-       
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 
 </head>
 
@@ -19,16 +20,15 @@
         <div class="container-fluid" style="background-color: black;">
 
             <div class="row">
-                <div class="col-md-2 my-3" >
-                    
+                <div class="col-md-2 my-3">
+
                     <img src="Vistas/mg/logo.png" class="img-fluid" alt="">
-                
+
                 </div>
 
-                <div class="col-md-7 my-3 justify-content-center" >
+                <div class="col-md-7 my-3 justify-content-center">
                     <form class="form-inline my-2 my-lg-0 p-2">
-                        <input class="form-control" id="inputBusqueda" style="width: 85%;" type="search" placeholder="Buscar"
-                            aria-label="Search">
+                        <input class="form-control" id="inputBusqueda" style="width: 85%;" type="search" placeholder="Buscar" aria-label="Search">
                         <button class="btn btn-outline-secundary my-2 my-sm-0" id="btnBuscar" type="button">Buscar</button>
                     </form>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="col-md-1 text-center mt-3">
 
                     <img src="Vistas/mg/carrito.png" data-toggle="modal" data-target="#carritoCompras" class="img-fluid" alt="">
-                  
+
 
                 </div>
 
@@ -45,9 +45,9 @@
                 <div class="col-md-2 justify-content-center my-3">
                     <nav class="sociales text-center">
                         <ul>
-                            <li><a href="http://www.facebook.com" target="_blank"> <span class="sr-only"> </span></a></li>
-                            <li><a href="http://www.instagram.com" target="_blank"> <span class="sr-only"> </span></a></li>
-                            <li><a href="http://www.whatsapp.com" target="_blank"> <span class="sr-only"> </span></a></li>
+                            <li><a href="https://www.facebook.com/tecnojomter" target="_blank"> <span class="sr-only"> </span></a></li>
+                            <li><a href="https://www.instagram.com/tecno.jomter1?igshid=1axff0q26fx6l" target="_blank"> <span class="sr-only"> </span></a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=56952878233&text=Hola%20quiero%20contactarme%20con%20ustedes" target="_blank"> <span class="sr-only"> </span></a></li>
                         </ul>
                     </nav>
 
@@ -61,23 +61,22 @@
         </div>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(0, 0, 0, 0.575); " >
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(0, 0, 0, 0.575); ">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto" style="background-color: rgba(39, 111, 124, 0.575); ">
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="inicio"> <strong class="color">Inicio</strong> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong class="color">Nosotros</strong> </a>
+                        <a class="nav-link" href="nosotros"><strong class="color">Nosotros</strong> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong class="color">Contácto</strong></a>
+                        <a class="nav-link" href="contacto"><strong class="color">Contácto</strong></a>
                     </li>
 
                 </ul>
@@ -109,3 +108,5 @@
 
 
     </header>
+
+    
