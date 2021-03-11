@@ -1,8 +1,6 @@
-document.addEventListener("DOMContentLoaded", cargarNosotros);
-
 function cargarNosotros() {
   $.ajax({
-    url: "Admin/Ajax/nosotrosA.php",
+    url: "admin/Ajax/nosotrosA.php",
     type: "POST",
     data: { accion: "MostrarNosotros" },
     dataType: "json",

@@ -13,8 +13,8 @@ class ProductosM extends conexionBD
 
 
 
-        $pdo = conexionBD::cBD()->prepare("INSERT INTO $tablaBD (IMG_UNO, IMG_DOS, IMG_TRES, IMG_CUATRO, NOMBRE_PRO, PRECIO_PRO, STOCK_PRO, CATEGORIA_PRO, TALLA, DESCRIPCION, ESTADO) values 
-        (:imgUno, :imgDos, :imgTres, :imgCuatro, :nombre, :precio, :stock, :categoria, :talla, :des, 'ACTIVADO')");
+        $pdo = conexionBD::cBD()->prepare("INSERT INTO $tablaBD (IMG_UNO, IMG_DOS, IMG_TRES, IMG_CUATRO, NOMBRE_PRO, PRECIO_PRO, STOCK_PRO, CATEGORIA_PRO, TALLA, DESCRIPCION, ESTADO, CANTIDAD_POR_MAYOR, PRECIO_POR_MAYOR) values 
+        (:imgUno, :imgDos, :imgTres, :imgCuatro, :nombre, :precio, :stock, :categoria, :talla, :des, 'ACTIVADO', :cantidadXmayor, :precioXmayor )");
 
         $pdo->bindParam(":imgUno", $datosC["imgUno"], PDO::PARAM_STR);
         $pdo->bindParam(":imgDos", $datosC["imgDos"], PDO::PARAM_STR);
@@ -26,6 +26,8 @@ class ProductosM extends conexionBD
         $pdo->bindParam(":categoria", $datosC["categoria"], PDO::PARAM_STR);
         $pdo->bindParam(":talla", $datosC["talla"], PDO::PARAM_STR);
         $pdo->bindParam(":des", $datosC["des"], PDO::PARAM_STR);
+        $pdo->bindParam(":cantidadXmayor", $datosC["cantidadXmayor"], PDO::PARAM_STR);
+        $pdo->bindParam(":precioXmayor", $datosC["precioXmayor"], PDO::PARAM_STR);
 
         if ($pdo->execute()) {
 
@@ -94,7 +96,7 @@ class ProductosM extends conexionBD
 
 
         $pdo = conexionBD::cBD()->prepare("UPDATE $tablaBD SET NOMBRE_PRO = :nombre, PRECIO_PRO = :precio, STOCK_PRO = :stock, CATEGORIA_PRO = :categoria, TALLA = :talla,
-        IMG_UNO = :imgUno, IMG_DOS = :imgDos, IMG_TRES = :imgTres, IMG_CUATRO = :imgCuatro, DESCRIPCION = :des WHERE id = :idPro");
+        IMG_UNO = :imgUno, IMG_DOS = :imgDos, IMG_TRES = :imgTres, IMG_CUATRO = :imgCuatro, DESCRIPCION = :des, CANTIDAD_POR_MAYOR = :cantidadXmayor, PRECIO_POR_MAYOR = :precioXmayor WHERE id = :idPro");
 
         $pdo->bindParam(":idPro", $datosC["idPro"], PDO::PARAM_STR);
         $pdo->bindParam(":imgUno", $datosC["imgUno"], PDO::PARAM_STR);
@@ -107,6 +109,8 @@ class ProductosM extends conexionBD
         $pdo->bindParam(":categoria", $datosC["categoria"], PDO::PARAM_STR);
         $pdo->bindParam(":talla", $datosC["talla"], PDO::PARAM_STR);
         $pdo->bindParam(":des", $datosC["des"], PDO::PARAM_STR);
+        $pdo->bindParam(":cantidadXmayor", $datosC["cantidadXmayor"], PDO::PARAM_STR);
+        $pdo->bindParam(":precioXmayor", $datosC["precioXmayor"], PDO::PARAM_STR);
 
         if ($pdo->execute()) {
 

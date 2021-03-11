@@ -75,9 +75,8 @@
     </div>
 </footer>
 
-
+<!-- <script src="admin/Vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>-->
 <script src="admin/Vistas/plugins/jquery/jquery.min.js"></script>
-
 <script src="admin/Vistas/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="admin/Vistas/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 
@@ -88,14 +87,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
 
 
 <!--JS NECESARIOS DEL SISTEMA -->
-
+<script src="Vistas/js/nosotros.js"></script>
 <script src="Vistas/js/cargarProductos.js"></script>
 <script src="Vistas/js/carrito.js"></script>
 <script src="Vistas/js/envio.js"></script>
-<script src="Vistas/js/nosotros.js"></script>
+
+
 
 
 

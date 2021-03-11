@@ -50,15 +50,10 @@
                                 <button class="btn btn-outline-warning mx-2" type="submit" id="buscarPro">Mostrar Todo</button>
                             </div>
                         </div>
-
                         <?php
                         $item = null;
-
                         $verP = ProductosC::VerProductosC($item);
-
                         ?>
-
-
                         </form>
                     </div>
                 </div>
@@ -81,6 +76,8 @@
                             <th>N°</th>
                             <th>Nombre</th>
                             <th>Precio</th>
+                            <th>Cantidad x Mayor</th>
+                            <th>Precio x Mayor</th>
                             <th>Stock</th>
                             <th>Imágenes</th>
                             <th>Categoría</th>
@@ -108,6 +105,8 @@
 
 
     <td>' . $value["PRECIO_PRO"] . '</td>
+    <td>' . $value["CANTIDAD_POR_MAYOR"] . '</td>
+    <td>' . $value["PRECIO_POR_MAYOR"] . '</td>
 
     <td>' . $value["STOCK_PRO"] . '</td>
 
@@ -220,6 +219,20 @@ $borrar->BorrarProductosC();
 
                             <div class="col-md-10">
                                 <div class="form-group">
+                                    <label for="cantidadxMayorN">Cantidad x Mayor </label>
+                                    <input type="number" class="form-control input-lg" name="cantidadxMayorN" id="cantidadxMayorN">
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="precioxMayorN">Precio x Mayor</label>
+                                    <input type="text" class="form-control input-lg" name="precioxMayorN" id="precioxMayorN">
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
                                     <label for="stockProductoN">Stock </label>
                                     <input type="number" class="form-control input-lg" name="stockProductoN" id="stockProductoN">
                                 </div>
@@ -324,6 +337,21 @@ $borrar->BorrarProductosC();
                                     <input type="text" class="form-control input-lg" name="precioProductoEd" id="precioProductoEd">
                                 </div>
                             </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="cantidadxMayorEd">Cantidad x Mayor </label>
+                                    <input type="number" class="form-control input-lg" name="cantidadxMayorEd" id="cantidadxMayorEd">
+                                </div>
+                            </div>
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="precioxMayorEd">Precio x Mayor</label>
+                                    <input type="text" class="form-control input-lg" name="precioxMayorEd" id="precioxMayorEd">
+                                </div>
+                            </div>
+
 
                             <div class="col-md-10">
                                 <div class="form-group">

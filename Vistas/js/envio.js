@@ -26,15 +26,15 @@ function isMobile() {
 }
 
 $("#carritoCompras").on("click", "#send", function () {
-  ventaPendiente();
-});
-
-function ventaPendiente() {
   if (carritoCompras.length === 0) {
     swal("Error", "Debe seleccionar al menos un producto", "error");
     return;
   }
+ 
+  ventaPendiente();
+});
 
+function ventaPendiente() {
   $("#modalConfirmarDatos").modal("show");
   $("#carritoCompras").modal("hide");
 
@@ -70,9 +70,12 @@ function ventaPendiente() {
       totalCompra = totalCompra + Number.parseInt(pro.subTotal);
     });
 
-    let listado = [totalCompra, nombreCliente, numCliente];
+    let totalFormato = numeral(totalCompra).format("0.000");
+
+    let listado = [totalFormato, nombreCliente, numCliente];
+
     $.ajax({
-      url: "Admin/Ajax/confirmarVentasA.php",
+      url: "admin/Ajax/confirmarVentasA.php",
       type: "POST",
       data: {
         accion: "Confirmar",
@@ -103,6 +106,7 @@ function enviodewhat() {
     produc = produc.concat(produ.trim());
   });
 
+  let totalFormato = numeral(total).format("0.000");
   setTimeout(() => {
     let message =
       "send?phone=" +
@@ -110,7 +114,7 @@ function enviodewhat() {
       "&text=*CARRITO WEB*" +
       produc +
       "%0A%0A*Total a Pagar*%20%20 = *$" +
-      total +
+      totalFormato +
       "*";
 
     if (isMobile()) {
@@ -119,30 +123,6 @@ function enviodewhat() {
       window.open(urlDesktop + message, "_blank");
     }
 
-
     window.location.href = "index.php?url=inicio&cod=inicio";
-    
-    
   }, 5);
-}
-
-function rederigiraInicio(){
-
-
-  
-
-
-    setTimeout(()=>{
-      swal(
-        "Gracias por su compra",
-        "Un vendedor se contactará en breve con ud para poder gestionar los detalles de la venta",
-        "success"
-      );
-
-    },3000);
-
- 
-
-
-
 }

@@ -11,7 +11,7 @@ class VentasM extends conexionBD
         $estado = "PENDIENTE";
 
 
-        $pdo = conexionBD::cBD()->prepare("INSERT INTO CONFIRMACION_VENTA (TOTAL_VENTA, NOMBRE_CLIENTE, TELEFONO_CLIENTE, ESTADO) VALUES (:totalVenta, :nombreCliente, :telefonoCliente, :estado)");
+        $pdo = conexionBD::cBD()->prepare("INSERT INTO confirmacion_venta (TOTAL_VENTA, NOMBRE_CLIENTE, TELEFONO_CLIENTE, ESTADO) VALUES (:totalVenta, :nombreCliente, :telefonoCliente, :estado)");
 
         $pdo->bindParam(":totalVenta", $lista[0], PDO::PARAM_STR);
         $pdo->bindParam(":nombreCliente", $lista[1], PDO::PARAM_STR);
