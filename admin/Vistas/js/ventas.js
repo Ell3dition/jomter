@@ -6,14 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function cargarVentas() {
+ 
   $.ajax({
     url: "Ajax/confirmarVentasA.php",
     type: "POST",
     data: { accion: "Cargar" },
     dataType: "json",
     success: function (respuesta) {
-      cargarTabla(respuesta);
+     cargarTabla(respuesta);
     },
+    error: function(e){
+
+         console.log(e.responseText)
+
+    }
   });
 }
 
@@ -29,8 +35,7 @@ async function cargarVentasPendientes(idVenta) {
 
 function cargarTabla(ventas) {
   $("#tablaVentas").empty();
-
-  const contenedorTbody = document.querySelector("#tablaVentas");
+ 
   ventas.forEach((element) => {
     const row = document.createElement("tr");
 
@@ -63,8 +68,7 @@ function cargarTabla(ventas) {
         </td>
         `;
     }
-
-    contenedorTbody.appendChild(row);
+    $("#tablaVentas").append(row);
   });
 }
 

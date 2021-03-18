@@ -70,7 +70,6 @@ class VentasM extends conexionBD
     static function CargarVentasM()
     {
 
-
         $pdo = conexionBD::cBD()->prepare("SELECT * FROM confirmacion_venta");
         $pdo->execute();
         return $pdo->fetchAll();
@@ -152,15 +151,5 @@ class VentasM extends conexionBD
         $pdo = null;
  
     }
-
-
-
-
-
-
-
-
-
-
     
 }

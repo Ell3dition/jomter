@@ -29,17 +29,19 @@ $("#carritoCompras").on("click", "#send", function () {
   if (carritoCompras.length === 0) {
     swal("Error", "Debe seleccionar al menos un producto", "error");
     return;
-  }
- 
+  } 
+  
   ventaPendiente();
 });
 
 function ventaPendiente() {
+  
   $("#modalConfirmarDatos").modal("show");
   $("#carritoCompras").modal("hide");
 
   const btnContactar = document.querySelector("#confirmar");
   btnContactar.addEventListener("click", () => {
+    console.log('HOla mundo')
     const nombreCliente = document.querySelector("#nombreCliente").value;
     const numCliente = document.querySelector("#telefonoCliente").value;
 

@@ -82,30 +82,66 @@ function cargarVistaPreviadelCarrito(respuesta) {
     $(".CuerpoModal").empty();
     respuesta.forEach((productos) => {
       if (productos.id == Pid) {
-        let cuerpoModalAgregar = ` <div class="col-md-5">
-        <img class="img img-fluid" style="height: 18rem;" src="admin/${productos.IMG_UNO}">
-    </div>
-
-    <div class="col-md-6">
-        <h5 class="text-info" idProducto="${productos.id}">${productos.NOMBRE_PRO}</h5>
-        <p class="my-0">Stock <strong class="stock"> ${productos.STOCK_PRO} </strong></p>
-        <p class="mb-3 talla">Talla <strong> ${productos.TALLA} </strong></p>
-        <h6>$ <span>${productos.PRECIO_PRO}</span>c/u</h6>
-        <h6>$ <span class="precioXmayor">${productos.PRECIO_POR_MAYOR}</span>  por mayor desde <span class="xmayor">${productos.CANTIDAD_POR_MAYOR}</span> un.</h6> 
-        <div class="input-group mb-3">
-
-</div>
-<label for="precioProductoN"><strong>Cantidad</strong> </label>
-        <div class="form-group input-group-prepend">
-                  <button class="btn btn-outline-danger btnMenos">-</button>
-            <input type="number" disabled class="form-control cantidad" id="precioProductoN" value="1" style="width: 90px;">
-                <button class="btn btn-outline-success btnMas" style="heigth: 50rem;">+</button>
-        </div>
-
-        <div class="alert-precio"></div>
         
-        <h3 class="ml-5 totalProducto">Total $ <span> </span></h3>
-    </div>`;
+        let cuerpoModalAgregar = "";
+
+        if(productos.PRECIO_POR_MAYOR == null || productos.PRECIO_POR_MAYOR == ""){
+          cuerpoModalAgregar = ` <div class="col-md-5">
+          <img class="img img-fluid" style="height: 18rem;" src="admin/${productos.IMG_UNO}">
+      </div>
+  
+      <div class="col-md-6">
+          <h5 class="text-info" idProducto="${productos.id}">${productos.NOMBRE_PRO}</h5>
+          <p class="my-0">Stock <strong class="stock"> ${productos.STOCK_PRO} </strong></p>
+          <p class="mb-3 talla">Talla <strong> ${productos.TALLA} </strong></p>
+          <h6>$ <span>${productos.PRECIO_PRO}</span>c/u</h6>
+          <h6> <span class="precioXmayor"></span><span class="xmayor"></span></h6> 
+          <div class="input-group mb-3">
+  
+  </div>
+  <label for="precioProductoN"><strong>Cantidad</strong> </label>
+          <div class="form-group input-group-prepend">
+                    <button class="btn btn-outline-danger btnMenos">-</button>
+              <input type="number" disabled class="form-control cantidad" id="precioProductoN" value="1" style="width: 90px;">
+                  <button class="btn btn-outline-success btnMas" style="heigth: 50rem;">+</button>
+          </div>
+  
+          <div class="alert-precio"></div>
+          
+          <h3 class="ml-5 totalProducto">Total $ <span> </span></h3>
+      </div>`;
+
+        }else{
+
+          cuerpoModalAgregar = ` <div class="col-md-5">
+          <img class="img img-fluid" style="height: 18rem;" src="admin/${productos.IMG_UNO}">
+      </div>
+  
+      <div class="col-md-6">
+          <h5 class="text-info" idProducto="${productos.id}">${productos.NOMBRE_PRO}</h5>
+          <p class="my-0">Stock <strong class="stock"> ${productos.STOCK_PRO} </strong></p>
+          <p class="mb-3 talla">Talla <strong> ${productos.TALLA} </strong></p>
+          <h6>$ <span>${productos.PRECIO_PRO}</span>c/u</h6>
+          <h6>$ <span class="precioXmayor">${productos.PRECIO_POR_MAYOR}</span> Precio por mayor desde <span class="xmayor">${productos.CANTIDAD_POR_MAYOR}</span> Un.</h6> 
+          <div class="input-group mb-3">
+  
+  </div>
+  <label for="precioProductoN"><strong>Cantidad</strong> </label>
+          <div class="form-group input-group-prepend">
+                    <button class="btn btn-outline-danger btnMenos">-</button>
+              <input type="number" disabled class="form-control cantidad" id="precioProductoN" value="1" style="width: 90px;">
+                  <button class="btn btn-outline-success btnMas" style="heigth: 50rem;">+</button>
+          </div>
+  
+          <div class="alert-precio"></div>
+          
+          <h3 class="ml-5 totalProducto">Total $ <span> </span></h3>
+      </div>`;
+
+
+        }
+
+
 
         $(".CuerpoModal").append(cuerpoModalAgregar);
 
@@ -315,10 +351,9 @@ function sumarRestarbtn() {
   $(".CuerpoModal").on("click", ".btnMenos", function () {
     let valor = document.querySelector(".cantidad").value;
     let can = Number.parseInt(valor) - 1;
-    if (can < 1) {
-      return;
-    }
+    if (can < 1) {return;}
     document.querySelector(".cantidad").value = can;
+
     let cantidadMayor = document.querySelector(".xmayor").textContent;
     if (Number.parseInt(can) < Number.parseInt(cantidadMayor)) {
       const divAlert = document.querySelector(".alert-precio");
@@ -328,9 +363,32 @@ function sumarRestarbtn() {
       divMessage.textContent = `Precio normal seleccionado`;
       divAlert.append(divMessage);
       const precioUni = document.querySelector("h6 span").textContent;
+      console.log(precioUni)
       let total = numeral(can * precioUni).format("0.000");
       const totalEtiqueta = document.querySelector(".totalProducto span");
       totalEtiqueta.textContent = `${total}`;
+    }else if (Number.parseInt(can) > Number.parseInt(cantidadMayor) || Number.parseInt(can) == Number.parseInt(cantidadMayor) ){
+
+      const divAlert = document.querySelector(".alert-precio");
+      $(".alert-precio").empty();
+      const divMessage = document.createElement("div");
+      divMessage.classList.add("alert", "alert-success");
+      divMessage.textContent = `Precio por mayor seleccionado`;
+      divAlert.append(divMessage);
+
+      const precioXmayor = document.querySelector(".precioXmayor").textContent;
+      let total = numeral(can * precioXmayor).format("0.000");
+      const totalEtiqueta = document.querySelector(".totalProducto span");
+      totalEtiqueta.textContent = `${total}`;
+
+    }else{
+
+      $(".alert-precio").empty();
+      const precioUni = document.querySelector("h6 span").textContent;
+      let total = numeral(can * precioUni).format("0.000");
+      const totalEtiqueta = document.querySelector(".totalProducto span");
+      totalEtiqueta.textContent = `${total}`;
+
     }
   });
 
@@ -338,17 +396,12 @@ function sumarRestarbtn() {
     let valor = document.querySelector(".cantidad").value;
     let can = Number.parseInt(valor) + 1;
     const stock = document.querySelector(".stock").textContent;
-    if (Number.parseInt(stock) < can) {
-      return;
-    }
+    if (Number.parseInt(stock) < can) { return; }
     document.querySelector(".cantidad").value = can;
     let cantidadMayor = document.querySelector(".xmayor").textContent;
     console.log(cantidadMayor);
 
-    if (
-      Number.parseInt(can) == Number.parseInt(cantidadMayor) ||
-      Number.parseInt(can) > Number.parseInt(cantidadMayor)
-    ) {
+    if (Number.parseInt(can) == Number.parseInt(cantidadMayor) || Number.parseInt(can) > Number.parseInt(cantidadMayor)) {
       const divAlert = document.querySelector(".alert-precio");
       $(".alert-precio").empty();
       const divMessage = document.createElement("div");

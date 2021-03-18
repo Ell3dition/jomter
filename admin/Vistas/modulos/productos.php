@@ -161,7 +161,7 @@ $borrar->BorrarProductosC();
 
 
 
-<div class="modal fade" id="imagenUno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="imagenUno" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -196,7 +196,7 @@ $borrar->BorrarProductosC();
 <div class="modal fade" role="dialog" id="crearProducto">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form form method="post" role="form" enctype="multipart/form-data">
+            <form form method="post" role="form" id="FormCrear" enctype="multipart/form-data">
 
                 <div class="modal-body">
                     <div class="container mt-5">
@@ -206,14 +206,14 @@ $borrar->BorrarProductosC();
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="nombreProductoN">Nombre </label>
-                                    <input type="text" class="form-control input-lg" name="nombreProductoN" id="nombreProductoN">
+                                    <input type="text" class="form-control input-lg" name="nombreProductoN" id="nombreProductoN" required>
                                 </div>
                             </div>
 
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="precioProductoN">Precio </label>
-                                    <input type="text" class="form-control input-lg" name="precioProductoN" id="precioProductoN">
+                                    <input type="text" class="form-control input-lg" name="precioProductoN" id="precioProductoN" required>
                                 </div>
                             </div>
 
@@ -234,7 +234,7 @@ $borrar->BorrarProductosC();
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="stockProductoN">Stock </label>
-                                    <input type="number" class="form-control input-lg" name="stockProductoN" id="stockProductoN">
+                                    <input type="number" class="form-control input-lg" name="stockProductoN" id="stockProductoN" required>
                                 </div>
                             </div>
 
@@ -242,7 +242,7 @@ $borrar->BorrarProductosC();
                                 <div class="form-group">
 
                                     <label for="categoriaProductoN">Categoría </label>
-                                    <select class="custom-select" name="categoriaProductoN" id="categoriaProductoN">
+                                    <select class="custom-select" name="categoriaProductoN" id="categoriaProductoN" required>
                                         <option value="0">Seleccione Categoría</option>
                                         <option value="Belleza">Belleza</option>
                                         <option value="Vestuario">Vestuario y Hogar</option>
@@ -257,7 +257,7 @@ $borrar->BorrarProductosC();
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="tallaProductoN">Talla </label>
-                                    <input type="text" class="form-control input-lg" name="tallaProductoN" id="tallaProductoN">
+                                    <input type="text" class="form-control input-lg" name="tallaProductoN" id="tallaProductoN" >
                                 </div>
                             </div>
 
@@ -296,7 +296,7 @@ $borrar->BorrarProductosC();
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="submit" class="btn btn-success guardar">Guardar</button>
 
                 </div>
 

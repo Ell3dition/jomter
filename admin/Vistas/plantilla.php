@@ -132,19 +132,20 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   <script src="Vistas/js/cargarImagens.js"></script>
- <script src="Vistas/js/nosotros.js"></script> 
+  <script src="Vistas/js/nosotros.js"></script>
   <script src="Vistas/js/usuarios.js"></script>
-<script src="Vistas/js/ventas.js"></script>
+
+  <script src="Vistas/js/ventas.js"></script>
 
   <!-- Include the Quill library -->
- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
-<!-- Initialize Quill editor -->
-<script>
-  var quill = new Quill('#editor', {
-    theme: 'snow'
-  });
-</script>
+  <!-- Initialize Quill editor -->
+  <script>
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+  </script>
 
 
 

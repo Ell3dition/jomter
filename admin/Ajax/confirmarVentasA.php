@@ -1,7 +1,7 @@
 <?php
 
 require_once "../Modelos/ventasM.php";
-require_once "../Modelos/validarProductosM.php";
+//require_once "../Modelos/validarProductosM.php";
 
 class VentasA
 {
@@ -68,7 +68,6 @@ if ($_POST["accion"] == "Confirmar") {
     $editarU = new VentasA();
     $editarU->ConfirmarVentaA();
 } else if ($_POST["accion"] == "Cargar") {
-
     $cargar = new VentasA();
     $cargar->CargarVentasA();
 } else if ($_POST["accion"] == "Exito") {
