@@ -96,6 +96,7 @@
 <script src="Vistas/js/cargarProductos.js"></script>
 <script src="Vistas/js/carrito.js"></script>
 <script src="Vistas/js/envio.js"></script>
+<script src="Vistas/js/validarDescripcion.js"></script>
 
 
 

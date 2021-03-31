@@ -30,48 +30,9 @@ function cargarDescripcionProducto(descripcion) {
     Pid = $(this).attr("idPro");
     $(".contenedorDescripcion").empty();
 
-    descripcion.forEach((pro) => {
-      if (pro.id == Pid) {
-        let cuerpoModalDescripcion = `<div class="col-md-6">
-        <div id="imagenesProductos" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#imagenesProductos" data-slide-to="0" class="active"></li>
-                <li data-target="#imagenesProductos" data-slide-to="1"></li>
-                <li data-target="#imagenesProductos" data-slide-to="2"></li>
-                <li data-target="#imagenesProductos" data-slide-to="3"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="admin/${pro.IMG_UNO}" class="d-block w-100" style="width: 100%; height: 20rem;" >
-                </div>
-                <div class="carousel-item">
-                    <img src="admin/${pro.IMG_DOS}" class="d-block w-100" >
-                </div>
-                <div class="carousel-item">
-                    <img src="admin/${pro.IMG_TRES}" class="d-block w-100" >
-                </div>
-                <div class="carousel-item">
-                    <img src="admin/${pro.IMG_CUATRO}" class="d-block w-100" >
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#imagenesProductos" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"style="background-color: black;"></span>
-                <span class="sr-only"></span>
-            </a>
-            <a class="carousel-control-next" href="#imagenesProductos" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: black;"></span>
-                <span class="sr-only"></span>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-6 mt-3 mt-md-0">
-    <p> ${pro.DESCRIPCION} </p>
-
-    </div>`;
-
-        $(".contenedorDescripcion").append(cuerpoModalDescripcion);
-      }
-    });
+    validarDescripcion(descripcion, Pid);
+    
+   
   });
 }
 
@@ -84,10 +45,18 @@ function cargarVistaPreviadelCarrito(respuesta) {
       if (productos.id == Pid) {
         
         let cuerpoModalAgregar = "";
+        let imgPrincipal = "";
+
+        if(productos.IMG_UNO == ""){
+          imgPrincipal = "Vistas/mg/default.png";
+        }else{
+
+          imgPrincipal = "admin/"+productos.IMG_UNO;
+        }
 
         if(productos.PRECIO_POR_MAYOR == null || productos.PRECIO_POR_MAYOR == ""){
-          cuerpoModalAgregar = ` <div class="col-md-5">
-          <img class="img img-fluid" style="height: 18rem;" src="admin/${productos.IMG_UNO}">
+          cuerpoModalAgregar = `<div class="col-md-5">
+          <img class="img img-fluid" style="height: 18rem;" src="${imgPrincipal}">
       </div>
   
       <div class="col-md-6">
@@ -114,7 +83,7 @@ function cargarVistaPreviadelCarrito(respuesta) {
         }else{
 
           cuerpoModalAgregar = ` <div class="col-md-5">
-          <img class="img img-fluid" style="height: 18rem;" src="admin/${productos.IMG_UNO}">
+          <img class="img img-fluid" style="height: 18rem;" src="${imgPrincipal}">
       </div>
   
       <div class="col-md-6">
@@ -162,10 +131,13 @@ function cargarVistaPreviadelCarrito(respuesta) {
 function crearTarjetasProductos(respuesta) {
   respuesta.forEach((registro) => {
     //TARJETAS DE PRODUCTOS
-    let cuerpo = `<div class="col-md-3 col-9 mt-5">
+    let cuerpo = '';
+      if(registro.IMG_UNO == ""){
+
+        cuerpo = `<div class="col-md-3 col-9 mt-5">
       <div class="card card-blog">
           <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto" idPro = "${registro.id}">
-            <img  src="admin/${registro.IMG_UNO}"  class="img imagen-tarjeta" >
+            <img  src="Vistas/mg/default.png"  class="img imagen-tarjeta" >
                  
               
           </div>
@@ -183,6 +155,34 @@ function crearTarjetasProductos(respuesta) {
           </div>
       </div>
   </div>`;
+
+
+      }else{
+        cuerpo = `<div class="col-md-3 col-9 mt-5">
+        <div class="card card-blog">
+            <div class="card-image"  data-toggle="modal" data-target="#descripcionProducto" idPro = "${registro.id}">
+              <img  src="admin/${registro.IMG_UNO}"  class="img imagen-tarjeta" >
+                   
+                
+            </div>
+            <div class="table">
+                <h6 class="text-info">${registro.NOMBRE_PRO}</h6>
+                <p class="my-0"><strong>Stock</strong> ${registro.STOCK_PRO}</p>
+                <p class="my-0"><strong>Talla</strong> ${registro.TALLA}</p>
+                <h4>$ ${registro.PRECIO_PRO}</h4>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-success verDetalle" data-toggle="modal" idPro = "${registro.id}" data-target="#agregarProducto"> <i
+                            class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        Agregar</button>
+                  
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+
+      }
+    
     $(".cuerpo").append(cuerpo);
   });
 }
@@ -199,8 +199,7 @@ function agregaralCarro(e) {
   const pro = e.filter((producto) => producto.id === idProductoSeleccionado);
   cantidadAgregando = document.querySelector(".cantidad").value;
 
-  console.log(pro);
-
+  
   let lista = pro.map((res) => {
     if (Number.parseInt(res.STOCK_PRO) < Number.parseInt(cantidadAgregando)) {
       swal("Lo sentimos", "Stock Insuficiente", "error");
@@ -248,7 +247,7 @@ function agregaralCarro(e) {
     return;
   }
 
-  console.log(document.querySelector("h6 span").textContent);
+
   const Productos = lista.find((pro) => pro.id == idProductoSeleccionado);
 
   const existentes = carritoCompras.some(
@@ -258,29 +257,28 @@ function agregaralCarro(e) {
   if (existentes) {
     carritoCompras.map((producto) => {
       if (producto.id === Productos.id) {
-        producto.cantidad =
-          Number.parseInt(producto.cantidad) +
-          Number.parseInt(document.querySelector(".cantidad").value);
 
-        if (
-          Number.parseInt(producto.cantidad) <
-          Number.parseInt(producto.cantidadM)
-        ) {
-          producto.subTotal = numeral(
-            producto.cantidad * producto.precioU
-          ).format("0.000");
+        producto.cantidad = Number.parseInt(producto.cantidad) + Number.parseInt(document.querySelector(".cantidad").value);
+
+        if(producto.cantidadM == "" || producto.cantidadM == null){
+
+          producto.subTotal = numeral(producto.cantidad * producto.precioU).format("0.000");
+          return;
+        }
+
+        if ( Number.parseInt(producto.cantidad)< Number.parseInt(producto.cantidadM) ) {
+          producto.subTotal = numeral(producto.cantidad * producto.precioU).format("0.000");
+          
         } else {
-          producto.subTotal = numeral(
-            producto.cantidad * producto.precioM
-          ).format("0.000");
+          producto.subTotal = numeral(producto.cantidad * producto.precioM).format("0.000");
+    
         }
       }
     });
   } else {
     carritoCompras = [...carritoCompras, Productos];
   }
-  console.log(Productos);
-  console.log(carritoCompras);
+ 
 
   agregaralcarrito();
   toastr.success("Aregado con éxito", "Producto", {
@@ -363,7 +361,7 @@ function sumarRestarbtn() {
       divMessage.textContent = `Precio normal seleccionado`;
       divAlert.append(divMessage);
       const precioUni = document.querySelector("h6 span").textContent;
-      console.log(precioUni)
+     
       let total = numeral(can * precioUni).format("0.000");
       const totalEtiqueta = document.querySelector(".totalProducto span");
       totalEtiqueta.textContent = `${total}`;
@@ -399,7 +397,7 @@ function sumarRestarbtn() {
     if (Number.parseInt(stock) < can) { return; }
     document.querySelector(".cantidad").value = can;
     let cantidadMayor = document.querySelector(".xmayor").textContent;
-    console.log(cantidadMayor);
+  
 
     if (Number.parseInt(can) == Number.parseInt(cantidadMayor) || Number.parseInt(can) > Number.parseInt(cantidadMayor)) {
       const divAlert = document.querySelector(".alert-precio");
@@ -479,7 +477,7 @@ function validarStockalAgregar() {
         Number.parseInt(carritoCompras[i].cantidad);
 
       encontrados++;
-      console.log(cantidaStock);
+     
       if (Number.parseInt(cantidaStock) < total) {
         return false;
       } else {
@@ -488,7 +486,7 @@ function validarStockalAgregar() {
     }
   }
 
-  console.log(encontrados);
+
 
   if (encontrados == 0) {
     return true;

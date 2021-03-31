@@ -19,7 +19,7 @@ class ProductosC
 
                 if (($_FILES["img1N"]["type"] == "image/jpeg")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgUNO = "Vistas/img/productos/P" . $nombre . ".jpg";
 
@@ -31,7 +31,7 @@ class ProductosC
 
                 if (($_FILES["img1N"]["type"] == "image/png")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgUNO = "Vistas/img/productos/P" . $nombre . ".png";
 
@@ -49,7 +49,7 @@ class ProductosC
 
                 if (($_FILES["img2N"]["type"] == "image/jpeg")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgDOS = "Vistas/img/productos/P" . $nombre . ".jpg";
 
@@ -61,7 +61,7 @@ class ProductosC
 
                 if (($_FILES["img2N"]["type"] == "image/png")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgDOS = "Vistas/img/productos/P" . $nombre . ".png";
 
@@ -80,7 +80,7 @@ class ProductosC
 
                 if (($_FILES["img3N"]["type"] == "image/jpeg")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgTRES = "Vistas/img/productos/P" . $nombre . ".jpg";
 
@@ -92,7 +92,7 @@ class ProductosC
 
                 if (($_FILES["img3N"]["type"] == "image/png")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgTRES = "Vistas/img/productos/P" . $nombre . ".png";
 
@@ -110,7 +110,7 @@ class ProductosC
 
                 if (($_FILES["img4N"]["type"] == "image/jpeg")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgCUATRO = "Vistas/img/productos/P" . $nombre . ".jpg";
 
@@ -122,7 +122,7 @@ class ProductosC
 
                 if (($_FILES["img4N"]["type"] == "image/png")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgCUATRO = "Vistas/img/productos/P" . $nombre . ".png";
 
@@ -298,7 +298,7 @@ class ProductosC
 
                 if (($_FILES["img1Ed"]["type"] == "image/jpeg")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgUNO = "Vistas/img/productos/P" . $nombre . ".jpg";
 
@@ -310,7 +310,7 @@ class ProductosC
 
                 if (($_FILES["img1Ed"]["type"] == "image/png")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgUNO = "Vistas/img/productos/P" . $nombre . ".png";
 
@@ -331,7 +331,7 @@ class ProductosC
                 }
                 if (($_FILES["img2Ed"]["type"] == "image/jpeg")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgDOS = "Vistas/img/productos/P" . $nombre . ".jpg";
 
@@ -343,7 +343,7 @@ class ProductosC
 
                 if (($_FILES["img2Ed"]["type"] == "image/png")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgDOS = "Vistas/img/productos/P" . $nombre . ".png";
 
@@ -366,7 +366,7 @@ class ProductosC
 
                 if (($_FILES["img3Ed"]["type"] == "image/jpeg")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgTRES = "Vistas/img/productos/P" . $nombre . ".jpg";
 
@@ -378,7 +378,7 @@ class ProductosC
 
                 if (($_FILES["img3Ed"]["type"] == "image/png")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgTRES = "Vistas/img/productos/P" . $nombre . ".png";
 
@@ -400,7 +400,7 @@ class ProductosC
 
                 if (($_FILES["img4Ed"]["type"] == "image/jpeg")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgCUATRO = "Vistas/img/productos/P" . $nombre . ".jpg";
 
@@ -412,7 +412,7 @@ class ProductosC
 
                 if (($_FILES["img4Ed"]["type"] == "image/png")) {
 
-                    $nombre = mt_rand(10, 999);
+                    $nombre = mt_rand(10, 9999);
 
                     $rutaImgCUATRO = "Vistas/img/productos/P" . $nombre . ".png";
 

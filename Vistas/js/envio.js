@@ -29,19 +29,17 @@ $("#carritoCompras").on("click", "#send", function () {
   if (carritoCompras.length === 0) {
     swal("Error", "Debe seleccionar al menos un producto", "error");
     return;
-  } 
-  
+  }
+
   ventaPendiente();
 });
 
 function ventaPendiente() {
-  
   $("#modalConfirmarDatos").modal("show");
   $("#carritoCompras").modal("hide");
 
   const btnContactar = document.querySelector("#confirmar");
   btnContactar.addEventListener("click", () => {
-    console.log('HOla mundo')
     const nombreCliente = document.querySelector("#nombreCliente").value;
     const numCliente = document.querySelector("#telefonoCliente").value;
 
@@ -69,13 +67,15 @@ function ventaPendiente() {
 
     let totalCompra = 0;
     carritoCompras.forEach((pro) => {
-      totalCompra = totalCompra + Number.parseInt(pro.subTotal);
+      
+      totalCompra += Number.parseFloat(pro.subTotal);
     });
 
     let totalFormato = numeral(totalCompra).format("0.000");
 
-    let listado = [totalFormato, nombreCliente, numCliente];
 
+    let listado = [totalFormato, nombreCliente, numCliente];
+   
     $.ajax({
       url: "admin/Ajax/confirmarVentasA.php",
       type: "POST",
@@ -102,9 +102,7 @@ function enviodewhat() {
 
   carritoCompras.forEach((pro) => {
     let produ = `%0A%0A*Producto*%20%20${pro.nombre}%20%20*Cantidad*%20%20${pro.cantidad}%20%20*Talla*%20%20${pro.talla}%20%20*SubTotal*%20%20${pro.subTotal}`;
-
-    total = total + Number.parseInt(pro.subTotal);
-
+    total += Number.parseFloat(pro.subTotal);
     produc = produc.concat(produ.trim());
   });
 
